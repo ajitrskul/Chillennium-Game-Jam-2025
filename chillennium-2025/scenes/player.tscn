@@ -1,65 +1,170 @@
-[gd_scene load_steps=13 format=3 uid="uid://bv8nsb38u7kpf"]
+[gd_scene load_steps=14 format=3 uid="uid://bv8nsb38u7kpf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vdy6m"]
-[ext_resource type="Texture2D" uid="uid://dm673uueah0qg" path="res://assets/sprites/player_front.png" id="1_yp7h4"]
-[ext_resource type="Texture2D" uid="uid://be5pd6nh4h4nb" path="res://assets/sprites/player_back.png" id="2_udp18"]
-[ext_resource type="Texture2D" uid="uid://cb7rba83qcrtt" path="res://assets/sprites/player_left.png" id="3_3yvdm"]
-[ext_resource type="Texture2D" uid="uid://bhjq4mhpac1ld" path="res://assets/sprites/player_right.png" id="4_dsvwi"]
-[ext_resource type="Texture2D" uid="uid://wlt3b2lv5c4j" path="res://assets/sprites/2d_light.webp" id="6_nitw6"]
+[ext_resource type="Texture2D" uid="uid://ck15p0rk50tgi" path="res://assets/sprites/Player/PlayerSprite_Blue.png" id="2_cidyd"]
+[ext_resource type="Texture2D" uid="uid://s66kf1hnpnmu" path="res://assets/sprites/Player/PlayerSprite_Yellow.png" id="2_d133y"]
+[ext_resource type="Texture2D" uid="uid://d3xls32ehtj1e" path="res://assets/sprites/Player/PlayerSprite_NoArm.png" id="3_8spwq"]
+[ext_resource type="Texture2D" uid="uid://dasm70qdley15" path="res://assets/sprites/Player/PlayerSprite_Red.png" id="4_r77a8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cuttg"]
-atlas = ExtResource("1_yp7h4")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vepo5"]
-atlas = ExtResource("3_3yvdm")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hjvr1"]
-atlas = ExtResource("4_dsvwi")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3oywk"]
-atlas = ExtResource("2_udp18")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_enfxm"]
+light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_esgjt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cuttg")
+"texture": ExtResource("2_cidyd")
 }],
 "loop": true,
-"name": &"down",
+"name": &"player-blue",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vepo5")
+"texture": ExtResource("3_8spwq")
 }],
 "loop": true,
-"name": &"left",
+"name": &"player-no-arm",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hjvr1")
+"texture": ExtResource("4_r77a8")
 }],
 "loop": true,
-"name": &"right",
+"name": &"player-red",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3oywk")
+"texture": ExtResource("2_d133y")
 }],
 "loop": true,
-"name": &"up",
+"name": &"player-yellow",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcqr7"]
-size = Vector2(23, 28)
+size = Vector2(180, 180)
+
+[sub_resource type="Gradient" id="Gradient_3lkia"]
+offsets = PackedFloat32Array(0, 0.285714)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ujir"]
+gradient = SubResource("Gradient_3lkia")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_gk48n"]
+resource_name = "DeathAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_t7rx4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dsu0h"]
+_data = {
+"DeathAnimation": SubResource("Animation_gk48n"),
+"RESET": SubResource("Animation_t7rx4")
+}
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -67,16 +172,45 @@ script = ExtResource("1_vdy6m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
+material = SubResource("CanvasItemMaterial_enfxm")
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_esgjt")
-animation = &"down"
+animation = &"player-blue"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_pcqr7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(1, 1, 0.239216, 1)
-texture = ExtResource("6_nitw6")
-texture_scale = 0.2
+position = Vector2(85, -40)
+color = Color(1, 1, 0.564706, 1)
+energy = 10.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_4ujir")
+texture_scale = 8.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -1410.0
+offset_top = -786.0
+offset_right = -720.0
+offset_bottom = -447.0
+theme_override_font_sizes/font_size = 36
+text = "Esc to quit"
+
+[node name="DeathLabel" type="Label" parent="."]
+visible = false
+offset_left = -360.0
+offset_top = -790.0
+offset_right = 330.0
+offset_bottom = -451.0
+theme_override_font_sizes/font_size = 36
+text = "YOU DIED!"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dsu0h")
+}
