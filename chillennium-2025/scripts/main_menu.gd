@@ -6,7 +6,7 @@ func _ready() -> void:
 	$VBoxContainer/StartButton.grab_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -17,8 +17,3 @@ func _on_start_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
-
-
-
-func _on_testscenebutton_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/testscene.tscn")

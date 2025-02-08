@@ -36,10 +36,6 @@ theme_override_constants/separation = 50
 layout_mode = 2
 text = "Start"
 
-[node name="testscenebutton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Start"
-
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
@@ -55,5 +51,4 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_hb2fm")
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/testscenebutton" to="." method="_on_testscenebutton_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
