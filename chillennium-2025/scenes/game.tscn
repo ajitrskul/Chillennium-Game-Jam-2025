@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/sprites/maze-tiles-v2/labyrinth-tiles-v2/white-background/scripts/game.gd" id="1_jfl8a"]
 [ext_resource type="Texture2D" uid="uid://ler677jcedwh" path="res://assets/sprites/placeholder-maze.png" id="45_r5sog"]
-[ext_resource type="PackedScene" uid="uid://bv8nsb38u7kpf" path="res://scenes/player.tscn" id="50_q6fvb"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="50_q6fvb"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4vh87"]
 light_mode = 2
