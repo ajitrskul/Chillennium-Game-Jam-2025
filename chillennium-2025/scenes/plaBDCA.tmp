@@ -59,26 +59,16 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Gradient" id="Gradient_6hbj2"]
-offsets = PackedFloat32Array(0, 0.844156)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sl1b4"]
 gradient = SubResource("Gradient_6hbj2")
 width = 256
 height = 256
-fill = 1
-fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Gradient" id="Gradient_372hg"]
-offsets = PackedFloat32Array(0, 0.720779, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.11039, 0.11039, 0.11039, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xdosh"]
 gradient = SubResource("Gradient_372hg")
-width = 256
-height = 256
-fill = 1
-fill_from = Vector2(0.5, 0.5)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 5
@@ -112,11 +102,10 @@ texture_scale = 8.0
 
 [node name="red-lantern" type="PointLight2D" parent="."]
 visible = false
-energy = 10.0
 texture = SubResource("GradientTexture2D_sl1b4")
 
 [node name="blue-lantern" type="PointLight2D" parent="."]
-visible = false
-color = Color(0.286275, 0.713726, 1, 1)
-energy = 10.0
+texture = SubResource("GradientTexture2D_xdosh")
+
+[node name="blue-lantern2" type="PointLight2D" parent="."]
 texture = SubResource("GradientTexture2D_xdosh")

@@ -3,7 +3,16 @@ class_name Player extends CharacterBody2D
 
 const SPEED = 32000.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var light: PointLight2D = $PointLight2D
+@onready var yellow_lantern: PointLight2D = $"yellow-lantern"
+@onready var red_lantern: PointLight2D = $"red-lantern"
+@onready var blue_lantern: PointLight2D = $"blue-lantern"
+
+@onready var current_lantern: PointLight2D = yellow_lantern
+var has_red: bool = false
+var has_blue: bool = false
+
+
+#var current_lantern: PointLight2D = $"yellow-lantern"
 
 var isAlive: bool
 
@@ -13,6 +22,7 @@ func _ready() -> void:
 func deathfunc() -> void:	
 	isAlive = false
 	print("success")
+	
 
 func _physics_process(delta: float) -> void:
 	
@@ -38,16 +48,16 @@ func _physics_process(delta: float) -> void:
 	if direction.x != 0:
 		if direction.x > 0: #right
 			sprite.rotation_degrees = -90
-			light.position = Vector2(85, -40)
+			current_lantern.position = Vector2(85, -40)
 		else: #left
 			sprite.rotation_degrees = 90
-			light.position = Vector2(-85, -40)
+			current_lantern.position = Vector2(-85, -40)
 	elif direction.y < 0: #up
 		sprite.rotation_degrees = -180
-		light.position = Vector2(-85, -40)
+		current_lantern.position = Vector2(-85, -40)
 	elif direction.y > 0: #down
 		sprite.rotation_degrees = 0
-		light.position = Vector2(40, 85)
+		current_lantern.position = Vector2(40, 85)
 	
 	velocity = direction * SPEED * delta
 	move_and_collide(direction)

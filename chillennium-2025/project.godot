@@ -38,6 +38,12 @@ move_right={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="yellow"
+2d_render/layer_2="red"
+2d_render/layer_3="blue"
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
