@@ -1,9 +1,23 @@
 class_name Player extends CharacterBody2D
 
+
 const SPEED = 32000.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var isAlive: bool
+
+func _ready() -> void:
+	isAlive = true
+
+func deathfunc() -> void:	
+	isAlive = false
+	print("success")
+
 func _physics_process(delta: float) -> void:
+	
+	if isAlive != true:
+		return
+		
 	#create 2d vector
 	var direction = Vector2.ZERO
 	#check for player input
