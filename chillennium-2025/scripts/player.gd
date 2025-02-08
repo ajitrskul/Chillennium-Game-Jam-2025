@@ -21,8 +21,7 @@ func _ready() -> void:
 
 func deathfunc() -> void:	
 	isAlive = false
-	print("success")
-	
+	animation_player.play("DeathAnimation")
 
 func _physics_process(delta: float) -> void:
 	
@@ -62,3 +61,7 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * SPEED * delta
 	move_and_collide(direction)
 	move_and_slide()
+
+func _input(event):
+	if event.is_action_pressed("leave_game"):
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

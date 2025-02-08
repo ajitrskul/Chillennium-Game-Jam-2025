@@ -402,8 +402,6 @@ sdf_collision = false
 [node name="Player" parent="." instance=ExtResource("50_q6fvb")]
 z_index = 100
 position = Vector2(11, -130)
-collision_layer = 1
-collision_mask = 1
 
 [node name="red-lantern" parent="." instance=ExtResource("7_ow3xo")]
 position = Vector2(1155, 1415)
