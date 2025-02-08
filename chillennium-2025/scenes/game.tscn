@@ -95,6 +95,8 @@ tile_set = SubResource("TileSet_2dr7r")
 
 [node name="Player" parent="." instance=ExtResource("50_q6fvb")]
 position = Vector2(11, -130)
+collision_layer = 1
+collision_mask = 1
 
 [node name="orange-1" type="LightOccluder2D" parent="."]
 z_index = 100

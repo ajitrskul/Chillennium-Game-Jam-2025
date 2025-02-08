@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4js6y5bh7l2a"
-path="res://.godot/imported/PlayerSprite.png-f9eb7a156b5b5beab409b14c301381ab.ctex"
+uid="uid://b4vofa77lvrkg"
+path="res://.godot/imported/Lantern_Blue.png-8630ae66e938fa976e1e288951d29655.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/PlayerSprite.png"
-dest_files=["res://.godot/imported/PlayerSprite.png-f9eb7a156b5b5beab409b14c301381ab.ctex"]
+source_file="res://assets/sprites/Player/Lantern_Blue.png"
+dest_files=["res://.godot/imported/Lantern_Blue.png-8630ae66e938fa976e1e288951d29655.ctex"]
 
 [params]
 
