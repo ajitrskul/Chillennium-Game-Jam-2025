@@ -15,7 +15,7 @@ func deathfunc() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if isAlive != true:
+	if isAlive == false:
 		return
 		
 	#create 2d vector
