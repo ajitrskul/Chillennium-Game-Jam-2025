@@ -1,76 +1,33 @@
-[gd_scene load_steps=15 format=3 uid="uid://bv8nsb38u7kpf"]
+[gd_scene load_steps=8 format=3 uid="uid://bv8nsb38u7kpf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vdy6m"]
-[ext_resource type="Texture2D" uid="uid://dm673uueah0qg" path="res://assets/sprites/player_front.png" id="1_yp7h4"]
-[ext_resource type="Texture2D" uid="uid://be5pd6nh4h4nb" path="res://assets/sprites/player_back.png" id="2_udp18"]
-[ext_resource type="Texture2D" uid="uid://cb7rba83qcrtt" path="res://assets/sprites/player_left.png" id="3_3yvdm"]
-[ext_resource type="Texture2D" uid="uid://bhjq4mhpac1ld" path="res://assets/sprites/player_right.png" id="4_dsvwi"]
+[ext_resource type="Texture2D" uid="uid://b4js6y5bh7l2a" path="res://assets/sprites/PlayerSprite.png" id="4_xu7px"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_enfxm"]
 light_mode = 1
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cuttg"]
-atlas = ExtResource("1_yp7h4")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vepo5"]
-atlas = ExtResource("3_3yvdm")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hjvr1"]
-atlas = ExtResource("4_dsvwi")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3oywk"]
-atlas = ExtResource("2_udp18")
-region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_esgjt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cuttg")
+"texture": ExtResource("4_xu7px")
 }],
 "loop": true,
-"name": &"down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vepo5")
-}],
-"loop": true,
-"name": &"left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hjvr1")
-}],
-"loop": true,
-"name": &"right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3oywk")
-}],
-"loop": true,
-"name": &"up",
+"name": &"player",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcqr7"]
-size = Vector2(22.9375, 30)
+size = Vector2(180, 180)
 
-[sub_resource type="Gradient" id="Gradient_er11n"]
-offsets = PackedFloat32Array(0, 0.701299)
+[sub_resource type="Gradient" id="Gradient_3lkia"]
+offsets = PackedFloat32Array(0, 0.285714)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_csenh"]
-gradient = SubResource("Gradient_er11n")
-width = 300
-height = 300
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ujir"]
+gradient = SubResource("Gradient_3lkia")
+width = 256
+height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -83,21 +40,21 @@ script = ExtResource("1_vdy6m")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 material = SubResource("CanvasItemMaterial_enfxm")
-scale = Vector2(8, 8)
+rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_esgjt")
-animation = &"down"
+animation = &"player"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.25, 10)
-scale = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_pcqr7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.2, 0.2)
+zoom = Vector2(0.4, 0.4)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(8, 8)
+position = Vector2(85, -40)
 color = Color(1, 1, 0.564706, 1)
+energy = 10.0
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_csenh")
-texture_scale = 0.4
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_4ujir")
+texture_scale = 8.0
