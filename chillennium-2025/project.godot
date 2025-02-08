@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Chillennium-2025"
-run/main_scene="res://scenes/node_2d.tscn"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -40,4 +40,4 @@ move_right={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.111197, 0.111197, 0.111197, 1)
+environment/defaults/default_clear_color=Color(0.0807833, 0.0807833, 0.0807833, 1)

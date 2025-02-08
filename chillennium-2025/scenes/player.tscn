@@ -75,8 +75,10 @@ position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_pcqr7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(4, 4)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(2, 2)
 color = Color(1, 1, 0.239216, 1)
 texture = ExtResource("6_nitw6")
 texture_scale = 0.2
