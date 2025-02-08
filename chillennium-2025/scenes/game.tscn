@@ -61,39 +61,83 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_plrk5")
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hvknh"]
-closed = false
-polygon = PackedVector2Array(0, 256, 128, 256)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yhoyl"]
+light_mode = 2
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_068wx"]
-closed = false
-polygon = PackedVector2Array(-64, 192, 64, 192)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7pfm"]
+texture = ExtResource("45_r5sog")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_q0ior"]
-resource_local_to_scene = true
-closed = false
-polygon = PackedVector2Array(64, 128, 128, 128, 128, 256, 128, 320, -64, 320, -64, 192, -64, 128, 0, 128)
+[sub_resource type="TileSet" id="TileSet_8v2x0"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_o7pfm")
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_jfl8a")
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="."]
-modulate = Color(0.427493, 0.427493, 0.427493, 1)
+[node name="lantern-0" type="TileMapLayer" parent="."]
 material = SubResource("CanvasItemMaterial_4vh87")
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAAAAP//AAAGAAUAAAD/////AAAGAAUAAAAAAP7/AAAGAAUAAAD///7/AAAGAAUAAAAAAAAAAAAGAAUAAAD//wAAAAAGAAUAAAABAAAAAAAGAAUAAAABAP//AAAGAAUAAAABAP7/AAAGAAUAAAD+//7/AAAGAAUAAAD+////AAAGAAUAAAD+/wAAAAAGAAUAAAACAP7/AAACAAUAAAACAP//AAACAAUAAAACAAAAAAACAAUAAAABAP3/AAACAAUAAGAAAP3/AAACAAUAAGD///3/AAACAAUAAGD+//3/AAACAAUAAGD9//7/AAACAAUAADD9////AAACAAUAADD9/wAAAAACAAUAADACAP3/AAACAAMAAAD9//3/AAACAAMAAGD9/wEAAAACAAMAADD+/wEAAAAEAAQAAAABAAEAAAAEAAQAAAD//wEAAAAEAAQAAAAAAAEAAAAGAAUAAAABAAIAAAAEAAQAAGD//wIAAAAEAAQAAFAAAAIAAAAGAAUAAAACAAEAAAACAAMAAFD//wMAAAACAAQAADAAAAMAAAAEAAQAADD//wQAAAAEAAQAAFAAAAQAAAAEAAQAADABAAMAAAAEAAQAAGABAAQAAAACAAQAAGA=")
+tile_map_data = PackedByteArray("AAD/////AAAFAAEAADAAAP//AAAHAAEAAAABAP//AAAHAAEAAAACAP//AAAHAAEAAAADAP//AAAHAAEAAAAEAP//AAAFAAEAAAA=")
 tile_set = SubResource("TileSet_a2fml")
 
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="TileMapLayer2"]
-occluder = SubResource("OccluderPolygon2D_hvknh")
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="TileMapLayer2"]
-occluder = SubResource("OccluderPolygon2D_068wx")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="TileMapLayer2"]
-occluder = SubResource("OccluderPolygon2D_q0ior")
+[node name="lantern-1" type="TileMapLayer" parent="."]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_yhoyl")
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAEAAAAAAAHAAEAAFAEAAEAAAAHAAEAAFAEAAIAAAAHAAEAAFAEAAMAAAAHAAQAADADAAMAAAAEAAQAADAFAAMAAAAEAAQAADAGAAMAAAACAAMAAAACAAMAAAACAAMAAGADAAQAAAAGAAUAAAAEAAQAAAAGAAUAAAAFAAQAAAAGAAUAAAADAAUAAAAGAAUAAAAEAAUAAAAGAAUAAAAFAAUAAAAGAAUAAAADAAYAAAAGAAUAAAAFAAYAAAAGAAUAAAAEAAYAAAAGAAUAAAACAAQAAAAEAAQAAFACAAUAAAAEAAQAAFACAAYAAAAEAAQAAFAGAAQAAAAEAAQAAGAGAAUAAAAEAAQAAGAGAAYAAAAEAAQAAGACAAcAAAACAAMAADAGAAcAAAACAAMAAFADAAcAAAAEAAQAAAAFAAcAAAAEAAQAAAAEAAcAAAAHAAQAAAA=")
+tile_set = SubResource("TileSet_8v2x0")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
 blend_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("50_q6fvb")]
+position = Vector2(12, -161)
