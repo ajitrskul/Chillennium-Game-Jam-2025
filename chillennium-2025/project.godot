@@ -40,4 +40,4 @@ move_right={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.111197, 0.111197, 0.111197, 1)
+environment/defaults/default_clear_color=Color(0.0807833, 0.0807833, 0.0807833, 1)

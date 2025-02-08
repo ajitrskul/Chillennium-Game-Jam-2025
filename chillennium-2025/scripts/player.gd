@@ -1,12 +1,11 @@
 class_name Player extends CharacterBody2D
 
-const SPEED = 8000.0
+const SPEED = 32000.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
 	#create 2d vector
 	var direction = Vector2.ZERO
-	
 	#check for player input
 	if Input.is_action_pressed("move_up"):
 		direction.y -= 1
