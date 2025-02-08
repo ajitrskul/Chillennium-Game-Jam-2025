@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bv8nsb38u7kpf"]
+[gd_scene load_steps=15 format=3 uid="uid://bv8nsb38u7kpf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vdy6m"]
 [ext_resource type="Texture2D" uid="uid://dm673uueah0qg" path="res://assets/sprites/player_front.png" id="1_yp7h4"]
 [ext_resource type="Texture2D" uid="uid://be5pd6nh4h4nb" path="res://assets/sprites/player_back.png" id="2_udp18"]
 [ext_resource type="Texture2D" uid="uid://cb7rba83qcrtt" path="res://assets/sprites/player_left.png" id="3_3yvdm"]
 [ext_resource type="Texture2D" uid="uid://bhjq4mhpac1ld" path="res://assets/sprites/player_right.png" id="4_dsvwi"]
-[ext_resource type="Texture2D" uid="uid://wlt3b2lv5c4j" path="res://assets/sprites/2d_light.webp" id="6_nitw6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_enfxm"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cuttg"]
 atlas = ExtResource("1_yp7h4")
@@ -61,12 +63,24 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcqr7"]
 size = Vector2(22.9375, 30)
 
+[sub_resource type="Gradient" id="Gradient_er11n"]
+offsets = PackedFloat32Array(0, 0.701299)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_csenh"]
+gradient = SubResource("Gradient_er11n")
+width = 300
+height = 300
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_vdy6m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
+material = SubResource("CanvasItemMaterial_enfxm")
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_esgjt")
 animation = &"down"
@@ -81,7 +95,7 @@ zoom = Vector2(0.2, 0.2)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(8, 8)
-color = Color(1, 1, 0, 1)
+color = Color(1, 1, 0.564706, 1)
 shadow_enabled = true
-texture = ExtResource("6_nitw6")
-texture_scale = 0.2
+texture = SubResource("GradientTexture2D_csenh")
+texture_scale = 0.4
