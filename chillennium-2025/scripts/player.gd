@@ -6,13 +6,11 @@ const SPEED = 32000.0
 @onready var yellow_lantern: PointLight2D = $"yellow-lantern"
 @onready var red_lantern: PointLight2D = $"red-lantern"
 @onready var blue_lantern: PointLight2D = $"blue-lantern"
-
 @onready var current_lantern: PointLight2D = yellow_lantern
 var has_red: bool = false
 var has_blue: bool = false
 
-
-#var current_lantern: PointLight2D = $"yellow-lantern"
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var isAlive: bool
 

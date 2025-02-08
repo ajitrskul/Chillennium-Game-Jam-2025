@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bv8nsb38u7kpf"]
+[gd_scene load_steps=18 format=3 uid="uid://bv8nsb38u7kpf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vdy6m"]
 [ext_resource type="Texture2D" uid="uid://ck15p0rk50tgi" path="res://assets/sprites/Player/PlayerSprite_Blue.png" id="2_cidyd"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dasm70qdley15" path="res://assets/sprites/Player/PlayerSprite_Red.png" id="4_r77a8"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_enfxm"]
-light_mode = 2
+light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_esgjt"]
 animations = [{
@@ -79,6 +79,7 @@ width = 256
 height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="Animation" id="Animation_gk48n"]
 resource_name = "DeathAnimation"
 tracks/0/type = "value"
@@ -192,7 +193,6 @@ motion_mode = 1
 script = ExtResource("1_vdy6m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.197937, 0.197937, 0.197937, 1)
 material = SubResource("CanvasItemMaterial_enfxm")
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_esgjt")
@@ -225,6 +225,7 @@ visible = false
 color = Color(0.286275, 0.713726, 1, 1)
 energy = 10.0
 texture = SubResource("GradientTexture2D_xdosh")
+
 [node name="Label" type="Label" parent="."]
 offset_left = -1410.0
 offset_top = -786.0

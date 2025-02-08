@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://c2uvsbehie7ke" path="res://assets/sprites/merged-tile-map.png" id="2_3763s"]
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="4_3set6"]
 [ext_resource type="Texture2D" uid="uid://dtb45gujtu08e" path="res://assets/sprites/WallTiles.png" id="5_qf2pw"]
-[ext_resource type="Shader" path="res://scripts/game.gdshader" id="6_hftp5"]
 [ext_resource type="PackedScene" uid="uid://dcsa4ik0f3bxj" path="res://scenes/red_lantern.tscn" id="7_ow3xo"]
 [ext_resource type="PackedScene" uid="uid://bv8nsb38u7kpf" path="res://scenes/player.tscn" id="50_q6fvb"]
 
@@ -310,8 +309,36 @@ texture_region_size = Vector2i(256, 256)
 tile_size = Vector2i(256, 256)
 sources/0 = SubResource("TileSetAtlasSource_17v8a")
 
+[sub_resource type="Shader" id="Shader_sg3su"]
+code = "shader_type canvas_item;
+
+uniform vec2 light_position;  // Position of the light source
+uniform float blocking_angle = 90.0;  // Angle at which the light is blocked
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+    vec2 to_light = light_position - FRAGCOORD.xy;
+    float angle = atan(to_light.y, to_light.x);
+    
+    // Block light only if the angle difference is less than the blocking angle
+    if (abs(angle) < blocking_angle) {
+        discard;  // Make the pixel transparent (block light)
+    }
+
+    COLOR = texture(TEXTURE, UV);  // Default appearance of the tile
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cfbkt"]
-shader = ExtResource("6_hftp5")
+shader = SubResource("Shader_sg3su")
 shader_parameter/light_position = null
 shader_parameter/blocking_angle = 45.0
 
