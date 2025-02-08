@@ -59,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcqr7"]
-size = Vector2(23, 28)
+size = Vector2(22.9375, 30)
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -67,18 +67,21 @@ script = ExtResource("1_vdy6m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
+scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_esgjt")
 animation = &"down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 2)
+position = Vector2(-0.25, 10)
+scale = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_pcqr7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(4, 4)
+zoom = Vector2(0.2, 0.2)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(2, 2)
-color = Color(1, 1, 0.239216, 1)
+scale = Vector2(8, 8)
+color = Color(1, 1, 0, 1)
+shadow_enabled = true
 texture = ExtResource("6_nitw6")
 texture_scale = 0.2
