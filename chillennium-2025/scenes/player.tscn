@@ -18,16 +18,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcqr7"]
-size = Vector2(22.9375, 30)
+size = Vector2(180, 180)
 
-[sub_resource type="Gradient" id="Gradient_er11n"]
-offsets = PackedFloat32Array(0, 0.701299)
+[sub_resource type="Gradient" id="Gradient_3lkia"]
+offsets = PackedFloat32Array(0, 0.285714)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_csenh"]
-gradient = SubResource("Gradient_er11n")
-width = 300
-height = 300
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ujir"]
+gradient = SubResource("Gradient_3lkia")
+width = 256
+height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -43,16 +43,16 @@ sprite_frames = SubResource("SpriteFrames_esgjt")
 animation = &"player"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.25, 10)
-scale = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_pcqr7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.4, 0.4)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(8, 8)
+position = Vector2(85, -40)
 color = Color(1, 1, 0.564706, 1)
+energy = 10.0
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_csenh")
-texture_scale = 0.4
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_4ujir")
+texture_scale = 8.0

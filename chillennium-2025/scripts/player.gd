@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 const SPEED = 32000.0
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var light: PointLight2D = $PointLight2D
 
 func _physics_process(delta: float) -> void:
 	#create 2d vector
@@ -21,15 +22,19 @@ func _physics_process(delta: float) -> void:
 		direction = direction.normalized()	
 	
 	if direction.x != 0:
-		if direction.x > 0:
+		if direction.x > 0: #right
 			sprite.rotation_degrees = -90
-		else:
+			light.position = Vector2(85, -40)
+		else: #left
 			sprite.rotation_degrees = 90
-	elif direction.y < 0:
-		
+			light.position = Vector2(-85, -40)
+	elif direction.y < 0: #up
 		sprite.rotation_degrees = -180
-	elif direction.y > 0:
+		light.position = Vector2(-85, -40)
+	elif direction.y > 0: #down
 		sprite.rotation_degrees = 0
+		light.position = Vector2(40, 85)
 	
 	velocity = direction * SPEED * delta
+	move_and_collide(direction)
 	move_and_slide()
