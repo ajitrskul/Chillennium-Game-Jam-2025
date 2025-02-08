@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bv8nsb38u7kpf" path="res://scenes/player.tscn" id="50_q6fvb"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4vh87"]
-light_mode = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_plrk5"]
 texture = ExtResource("45_r5sog")
@@ -93,5 +92,8 @@ occluder = SubResource("OccluderPolygon2D_068wx")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="TileMapLayer2"]
 occluder = SubResource("OccluderPolygon2D_q0ior")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+blend_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("50_q6fvb")]
