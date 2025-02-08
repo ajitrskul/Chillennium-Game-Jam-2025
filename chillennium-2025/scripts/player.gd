@@ -22,13 +22,14 @@ func _physics_process(delta: float) -> void:
 	
 	if direction.x != 0:
 		if direction.x > 0:
-			sprite.play("right")
+			sprite.rotation_degrees = -90
 		else:
-			sprite.play("left")
+			sprite.rotation_degrees = 90
 	elif direction.y < 0:
-		sprite.play("up")
+		
+		sprite.rotation_degrees = -180
 	elif direction.y > 0:
-		sprite.play("down")
+		sprite.rotation_degrees = 0
 	
 	velocity = direction * SPEED * delta
 	move_and_slide()
