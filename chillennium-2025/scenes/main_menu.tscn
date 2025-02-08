@@ -5,6 +5,7 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hb2fm"]
 texture = ExtResource("2_v62je")
+axis_stretch_vertical = 2
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
