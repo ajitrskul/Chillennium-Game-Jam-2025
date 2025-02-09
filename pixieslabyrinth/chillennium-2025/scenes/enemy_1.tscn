@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://dqsk11w6060aq"]
+
+[ext_resource type="Script" path="res://scripts/enemy_1.gd" id="1_p4ki7"]
+[ext_resource type="Texture2D" uid="uid://drpnb1yf3wytt" path="res://assets/sprites/Enemies/RedSlimeSprite.png" id="2_tn7ji"]
+[ext_resource type="PackedScene" uid="uid://dpy0usf416jfm" path="res://scenes/killzone.tscn" id="3_nnfqa"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fen8j"]
+light_mode = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82bg8"]
+atlas = ExtResource("2_tn7ji")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t54w"]
+atlas = ExtResource("2_tn7ji")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f5ji"]
+atlas = ExtResource("2_tn7ji")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jevql"]
+atlas = ExtResource("2_tn7ji")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ccugm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82bg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t54w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f5ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jevql")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_62hrb"]
+radius = 84.0238
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yrv8l"]
+radius = 586.413
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfou0"]
+radius = 76.0
+
+[node name="Enemy1" type="CharacterBody2D"]
+light_mask = 2
+script = ExtResource("1_p4ki7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.337255, 0.337255, 0.337255, 1)
+light_mask = 2
+material = SubResource("CanvasItemMaterial_fen8j")
+sprite_frames = SubResource("SpriteFrames_ccugm")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="killzone" parent="." instance=ExtResource("3_nnfqa")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_62hrb")
+
+[node name="Activation" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Activation"]
+shape = SubResource("CircleShape2D_yrv8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tfou0")
+
+[connection signal="body_entered" from="Activation" to="." method="_on_activation_body_entered"]

@@ -1,0 +1,111 @@
+[gd_scene load_steps=15 format=3 uid="uid://bv8nsb38u7kpf"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_vdy6m"]
+[ext_resource type="Texture2D" uid="uid://ck15p0rk50tgi" path="res://assets/sprites/Player/PlayerSprite_Blue.png" id="2_cidyd"]
+[ext_resource type="Texture2D" uid="uid://s66kf1hnpnmu" path="res://assets/sprites/Player/PlayerSprite_Yellow.png" id="2_d133y"]
+[ext_resource type="Texture2D" uid="uid://d3xls32ehtj1e" path="res://assets/sprites/Player/PlayerSprite_NoArm.png" id="3_8spwq"]
+[ext_resource type="Texture2D" uid="uid://dasm70qdley15" path="res://assets/sprites/Player/PlayerSprite_Red.png" id="4_r77a8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_enfxm"]
+light_mode = 2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_esgjt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cidyd")
+}],
+"loop": true,
+"name": &"player-blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8spwq")
+}],
+"loop": true,
+"name": &"player-no-arm",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_r77a8")
+}],
+"loop": true,
+"name": &"player-red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d133y")
+}],
+"loop": true,
+"name": &"player-yellow",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcqr7"]
+size = Vector2(180, 180)
+
+[sub_resource type="Gradient" id="Gradient_3lkia"]
+offsets = PackedFloat32Array(0, 0.285714)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ujir"]
+gradient = SubResource("Gradient_3lkia")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_6hbj2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sl1b4"]
+gradient = SubResource("Gradient_6hbj2")
+width = 256
+height = 256
+
+[sub_resource type="Gradient" id="Gradient_372hg"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xdosh"]
+gradient = SubResource("Gradient_372hg")
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_vdy6m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.197937, 0.197937, 0.197937, 1)
+material = SubResource("CanvasItemMaterial_enfxm")
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_esgjt")
+animation = &"player-yellow"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pcqr7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="yellow-lantern" type="PointLight2D" parent="."]
+position = Vector2(85, -40)
+color = Color(1, 1, 0.564706, 1)
+energy = 10.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_4ujir")
+texture_scale = 8.0
+
+[node name="red-lantern" type="PointLight2D" parent="."]
+visible = false
+texture = SubResource("GradientTexture2D_sl1b4")
+
+[node name="blue-lantern" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_xdosh")
+
+[node name="blue-lantern2" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_xdosh")

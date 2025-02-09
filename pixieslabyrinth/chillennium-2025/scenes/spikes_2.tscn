@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://m6bs4fg1q8hn"]
+
+[ext_resource type="Script" path="res://scripts/spikes_1.gd" id="1_1x0er"]
+[ext_resource type="Texture2D" uid="uid://dko5jtdaq2foe" path="res://assets/sprites/SpikePit.png" id="1_64yrf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jafmx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gw8g"]
+size = Vector2(209.014, 212.76)
+
+[node name="spikes-2" type="Area2D"]
+script = ExtResource("1_1x0er")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.172549, 0.172549, 0.172549, 1)
+light_mask = 4
+material = SubResource("CanvasItemMaterial_jafmx")
+texture = ExtResource("1_64yrf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.39355, 1.04258)
+shape = SubResource("RectangleShape2D_0gw8g")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
