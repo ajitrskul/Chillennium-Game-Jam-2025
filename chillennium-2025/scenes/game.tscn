@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=4 uid="uid://den0meql5rp6i"]
+[gd_scene load_steps=15 format=4 uid="uid://den0meql5rp6i"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rp2ix"]
 [ext_resource type="Texture2D" uid="uid://c2uvsbehie7ke" path="res://assets/sprites/merged-tile-map.png" id="2_3763s"]
+[ext_resource type="PackedScene" uid="uid://dytuyj8ltplvb" path="res://scenes/campfire.tscn" id="5_0jysk"]
 [ext_resource type="Texture2D" uid="uid://dtb45gujtu08e" path="res://assets/sprites/WallTiles.png" id="5_qf2pw"]
 [ext_resource type="PackedScene" uid="uid://bv8nsb38u7kpf" path="res://scenes/player.tscn" id="50_q6fvb"]
 
@@ -103,3 +104,7 @@ occluder = SubResource("OccluderPolygon2D_faaui")
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
 blend_mode = 1
+
+[node name="Campfire" parent="." instance=ExtResource("5_0jysk")]
+position = Vector2(4221, 3199)
+DestinationScene = "main_menu"
