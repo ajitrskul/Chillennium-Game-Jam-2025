@@ -656,6 +656,11 @@ position = Vector2(4152, -2356)
 texture = ExtResource("10_hlvki")
 script = ExtResource("11_m37xc")
 
+[node name="Label" type="Label" parent="Sign1"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Inspect (F)"
+
 [node name="Sign2" type="Sprite2D" parent="."]
 position = Vector2(-1840, -3136)
 texture = ExtResource("10_hlvki")
