@@ -382,3 +382,172 @@ position = Vector2(-900, -38)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
 blend_mode = 1
+
+[node name="Switch" parent="." instance=ExtResource("7_rnxx6")]
+modulate = Color(1, 0.894118, 0, 1)
+position = Vector2(-1418, -3626)
+switchType = "Puzzle"
+
+[node name="Switch2" parent="." instance=ExtResource("7_rnxx6")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(-906, -3626)
+switchType = "Puzzle"
+
+[node name="Switch3" parent="." instance=ExtResource("7_rnxx6")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-394, -3626)
+switchType = "Puzzle"
+
+[node name="MoveableWall" parent="." instance=ExtResource("8_k4igf")]
+position = Vector2(-907, -4033)
+script = ExtResource("9_ohe6q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MoveableWall"]
+libraries = {
+"": SubResource("AnimationLibrary_nymk4")
+}
+
+[node name="Sign1" type="Sprite2D" parent="."]
+position = Vector2(4152, -2356)
+texture = ExtResource("10_hlvki")
+script = ExtResource("11_m37xc")
+
+[node name="Label" type="Label" parent="Sign1"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Inspect (F)"
+
+[node name="Sign2" type="Sprite2D" parent="."]
+position = Vector2(-1840, -3136)
+texture = ExtResource("10_hlvki")
+script = ExtResource("12_c48kv")
+
+[node name="Sign3" type="Sprite2D" parent="."]
+position = Vector2(-7056, -5264)
+texture = ExtResource("10_hlvki")
+script = ExtResource("13_0kxpv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_od1fw")
+}
+speed_scale = 0.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control"]
+visible = false
+light_mask = 2
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.5
+offset_top = -276.5
+offset_right = 292.5
+offset_bottom = 276.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture = ExtResource("14_xbv12")
+region_rect = Rect2(9, 1, 238, 249)
+patch_margin_left = 86
+patch_margin_top = 81
+patch_margin_right = 81
+patch_margin_bottom = 58
+
+[node name="Label1" type="Label" parent="CanvasLayer/Control/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -11.5
+offset_right = 22.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "RED 1"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -11.5
+offset_right = 22.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "YELLOW 2"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -11.5
+offset_right = 22.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BLUE 3"
+
+[node name="Enemy2" parent="." instance=ExtResource("15_q7n0k")]
+position = Vector2(-3742, -4994)
+
+[node name="Enemy3" parent="." instance=ExtResource("15_q7n0k")]
+position = Vector2(-5791, -1812)
+
+[node name="Enemy4" parent="." instance=ExtResource("15_q7n0k")]
+position = Vector2(-7047, -4168)
+
+[node name="Enemy1" parent="." instance=ExtResource("16_tj26i")]
+position = Vector2(-7123, 308)
+
+[node name="Enemy5" parent="." instance=ExtResource("16_tj26i")]
+position = Vector2(3279, -1654)
+
+[node name="Enemy6" parent="." instance=ExtResource("15_q7n0k")]
+position = Vector2(3272, -3427)
+
+[node name="Enemy7" parent="." instance=ExtResource("16_tj26i")]
+position = Vector2(-3007, -1815)
+
+[node name="GoodbyeBox" type="Area2D" parent="."]
+script = ExtResource("17_nye1f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoodbyeBox"]
+position = Vector2(-913, -5486)
+shape = SubResource("RectangleShape2D_unhov")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_bxatc")
+autoplay = true
+
+[connection signal="body_entered" from="GoodbyeBox" to="GoodbyeBox" method="_on_body_entered"]
