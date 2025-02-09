@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://duxkn8ff8gtjm"]
+[gd_scene load_steps=53 format=4 uid="uid://duxkn8ff8gtjm"]
 
 [ext_resource type="Script" path="res://scripts/level-1.gd" id="1_e7dio"]
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="2_5sern"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dvh5xam4e5wv" path="res://scenes/enemy_0.tscn" id="5_7adbr"]
 [ext_resource type="PackedScene" uid="uid://bv8nsb38u7kpf" path="res://scenes/player.tscn" id="5_cknda"]
 [ext_resource type="PackedScene" uid="uid://dqsk11w6060aq" path="res://scenes/enemy_1.tscn" id="6_6lb63"]
-[ext_resource type="PackedScene" uid="uid://cw3oh6ebhnrbd" path="res://scenes/campfire.tscn" id="7_1p17b"]
+[ext_resource type="PackedScene" uid="uid://dytuyj8ltplvb" path="res://scenes/campfire.tscn" id="7_1p17b"]
 [ext_resource type="PackedScene" uid="uid://defva11l0d3l8" path="res://scenes/switch.tscn" id="7_to1sm"]
 [ext_resource type="PackedScene" uid="uid://m6bs4fg1q8hn" path="res://scenes/spikes_2.tscn" id="8_8ljx2"]
 [ext_resource type="Script" path="res://scripts/l2-switch.gd" id="8_523bc"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://kpdbgsevhglp" path="res://scenes/moveable_wall.tscn" id="8_qphyh"]
 [ext_resource type="Script" path="res://scripts/l2_moveable_wall.gd" id="9_ebs3e"]
 [ext_resource type="PackedScene" uid="uid://l5tpbiyjym83" path="res://scenes/blue_lantern.tscn" id="11_wnpon"]
+[ext_resource type="Theme" uid="uid://crmmvokeriknc" path="res://assets/Themes/LabelText.tres" id="16_82srh"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xfy1i"]
 light_mode = 2
@@ -3481,4 +3482,23 @@ position = Vector2(-9994.43, 609.458)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 light_mask = 7
 position = Vector2(-138, -42)
-blend_mode = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = -10065.8
+offset_top = 57.3404
+offset_right = -9887.84
+offset_bottom = 136.34
+theme = ExtResource("16_82srh")
+theme_override_colors/font_color = Color(0, 0.439216, 0.741176, 1)
+text = "3...?"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -4576.05
+offset_top = 4020.66
+offset_right = -4150.05
+offset_bottom = 4099.66
+theme = ExtResource("16_82srh")
+theme_override_font_sizes/font_size = 40
+text = "F to Interact"
+horizontal_alignment = 1
