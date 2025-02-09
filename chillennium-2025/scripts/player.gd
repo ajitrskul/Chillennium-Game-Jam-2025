@@ -10,7 +10,7 @@ const SPEED = 32000.0
 var current_lantern_num: int = 0
 
 
-var has_red: bool = true
+var has_red: bool = false
 var has_blue: bool = false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
