@@ -21,6 +21,28 @@ func deathfunc() -> void:
 	isAlive = false
 	animation_player.play("DeathAnimation")
 
+func _input(event) -> void:
+	if event.is_action_pressed("leave_game"):
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	elif current_lantern != yellow_lantern and Input.is_action_pressed("swap_yellow"):
+		if current_lantern == red_lantern:
+			animation_player.play("red-to-yellow")
+		else:
+			animation_player.play("blue-to-yellow")
+		current_lantern = yellow_lantern
+	elif current_lantern != red_lantern and has_red == true and Input.is_action_just_pressed("swap_red"):
+		if current_lantern == yellow_lantern:
+			animation_player.play("yellow-to-red")
+		else:
+			animation_player.play("blue-to-red")
+		current_lantern = red_lantern
+	elif current_lantern != blue_lantern and has_blue == true and Input.is_action_just_pressed("swap_blue"):
+		if current_lantern == yellow_lantern:
+			animation_player.play("yellow-to-blue")
+		else:
+			animation_player.play("red-to-blue")
+		current_lantern = blue_lantern
+
 func _physics_process(delta: float) -> void:
 	
 	if isAlive == false:
@@ -59,7 +81,3 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * SPEED * delta
 	move_and_collide(direction)
 	move_and_slide()
-
-func _input(event):
-	if event.is_action_pressed("leave_game"):
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
