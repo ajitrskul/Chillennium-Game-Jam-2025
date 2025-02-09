@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bu0dafpx5dxmi"]
+[gd_scene load_steps=8 format=4 uid="uid://bkadba6mpmtjh"]
 
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="1_i08ro"]
 [ext_resource type="Script" path="res://scenes/goodbye_scene.gd" id="1_idcq6"]
