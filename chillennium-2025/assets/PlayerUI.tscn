@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnq1yuqadw5nd"]
+
+[ext_resource type="Texture2D" uid="uid://bxk1snsgm0cx4" path="res://assets/sprites/GUI/Esc.png" id="1_5aoef"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 0.415
+anchor_bottom = 0.198
+offset_right = -478.08
+offset_bottom = -128.304
+
+[node name="TextureRect" type="TextureRect" parent="."]
+light_mask = 524288
+visibility_layer = 524288
+layout_mode = 1
+offset_right = 350.0
+offset_bottom = 75.0
+texture = ExtResource("1_5aoef")
+expand_mode = 3

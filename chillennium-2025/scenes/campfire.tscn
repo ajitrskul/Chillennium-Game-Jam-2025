@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dytuyj8ltplvb"]
+[gd_scene load_steps=8 format=3 uid="uid://cw3oh6ebhnrbd"]
 
 [ext_resource type="Script" path="res://scripts/campfire.gd" id="1_kuqtq"]
 [ext_resource type="Texture2D" uid="uid://ceu0vj34kk5gf" path="res://assets/sprites/CampfireAnim.png" id="2_aovax"]
+[ext_resource type="Texture2D" uid="uid://dpskrlh5ou71x" path="res://assets/sprites/GUI/Save.png" id="3_0c0am"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aq1bi"]
 atlas = ExtResource("2_aovax")
@@ -40,10 +41,10 @@ sprite_frames = SubResource("SpriteFrames_ty7di")
 autoplay = "default"
 frame_progress = 0.644914
 
-[node name="Label" type="Label" parent="."]
-offset_left = -121.0
-offset_top = 115.0
-offset_right = 124.0
-offset_bottom = 162.0
-text = "Save Game (F)"
-horizontal_alignment = 1
+[node name="TextureRect" type="TextureRect" parent="AnimatedSprite2D"]
+offset_left = -92.0
+offset_top = 107.0
+offset_right = 89.2121
+offset_bottom = 147.0
+texture = ExtResource("3_0c0am")
+expand_mode = 3
