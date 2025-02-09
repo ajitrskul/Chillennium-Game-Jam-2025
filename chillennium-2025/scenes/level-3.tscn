@@ -1,6 +1,6 @@
 [gd_scene load_steps=62 format=4 uid="uid://bo8x6j0peph11"]
 
-[ext_resource type="Script" path="res://scripts/level-1.gd" id="1_v2ru8"]
+[ext_resource type="Script" path="res://scripts/level-3.gd" id="1_v2ru8"]
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="2_ub5bl"]
 [ext_resource type="Texture2D" uid="uid://dtb45gujtu08e" path="res://assets/sprites/WallTiles.png" id="3_x41aa"]
 [ext_resource type="Texture2D" uid="uid://c2uvsbehie7ke" path="res://assets/sprites/merged-tile-map.png" id="4_jl3cy"]

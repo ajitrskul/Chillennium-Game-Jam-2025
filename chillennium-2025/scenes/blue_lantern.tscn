@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://l5tpbiyjym83"]
+[gd_scene load_steps=12 format=3 uid="uid://dk4yyxqi6xh34"]
 
 [ext_resource type="Script" path="res://scripts/blue_lantern.gd" id="1_a2fvm"]
 [ext_resource type="Texture2D" uid="uid://b4vofa77lvrkg" path="res://assets/sprites/Player/Lantern_Blue.png" id="2_2ea7c"]
@@ -17,6 +17,9 @@ width = 256
 height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gmf31"]
+light_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykn6d"]
 radius = 23.0
@@ -112,8 +115,7 @@ material = SubResource("CanvasItemMaterial_1oqae")
 script = ExtResource("1_a2fvm")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-modulate = Color(0.362829, 0.362829, 0.362829, 1)
-light_mask = 7
+light_mask = 4
 color = Color(0.286275, 0.713726, 1, 1)
 energy = 10.0
 range_item_cull_mask = 4
@@ -122,8 +124,8 @@ texture = SubResource("GradientTexture2D_lwyy4")
 texture_scale = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.374139, 0.374139, 0.374139, 1)
-light_mask = 2
+light_mask = 4
+material = SubResource("CanvasItemMaterial_gmf31")
 texture = ExtResource("2_2ea7c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
