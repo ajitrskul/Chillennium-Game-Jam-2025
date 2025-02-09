@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	SceneChanger.change_scene("res://scenes/level-1.tscn")
+	SceneChanger.change_scene("res://scenes/level-2.tscn")
 
 
 

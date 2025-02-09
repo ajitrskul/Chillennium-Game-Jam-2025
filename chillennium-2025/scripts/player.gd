@@ -19,6 +19,15 @@ var isAlive: bool
 
 func _ready() -> void:
 	isAlive = true
+	
+	if get_parent().name == "level-1":
+		return
+	elif get_parent().name == "level-2":
+		has_red = true
+	elif get_parent().name == "level-3":
+		has_red = true
+		has_blue = true
+	
 
 func deathfunc() -> void:	
 	isAlive = false
