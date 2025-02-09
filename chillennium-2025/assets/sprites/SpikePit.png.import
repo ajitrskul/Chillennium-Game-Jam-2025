@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxk1snsgm0cx4"
-path="res://.godot/imported/Esc.png-236d58c2bea27842a0a7dda982020bb7.ctex"
+uid="uid://dko5jtdaq2foe"
+path="res://.godot/imported/SpikePit.png-f090a679389cc229bf6e1a9d91833d0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/GUI/Esc.png"
-dest_files=["res://.godot/imported/Esc.png-236d58c2bea27842a0a7dda982020bb7.ctex"]
+source_file="res://assets/sprites/SpikePit.png"
+dest_files=["res://.godot/imported/SpikePit.png-f090a679389cc229bf6e1a9d91833d0a.ctex"]
 
 [params]
 
