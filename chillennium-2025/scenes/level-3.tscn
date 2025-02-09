@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://scripts/sign_3.gd" id="13_0kxpv"]
 [ext_resource type="Texture2D" uid="uid://cy7xqs10fkafu" path="res://assets/sprites/GUI/9GridGUI.png" id="14_xbv12"]
 [ext_resource type="PackedScene" uid="uid://bop5j78cfa5d6" path="res://scenes/enemy_2.tscn" id="15_q7n0k"]
-[ext_resource type="PackedScene" uid="uid://dw2c3k44hdc33" path="res://scenes/enemy_1.tscn" id="16_tj26i"]
+[ext_resource type="PackedScene" uid="uid://dqsk11w6060aq" path="res://scenes/enemy_1.tscn" id="16_tj26i"]
 [ext_resource type="Script" path="res://scripts/goodbye_box.gd" id="17_nye1f"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xfy1i"]
@@ -359,21 +359,6 @@ tile_size = Vector2i(256, 256)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_17v8a")
 
-[sub_resource type="Animation" id="Animation_kjr17"]
-resource_name = "door_move"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-907, -4033), Vector2(-648, -4034)]
-}
-
 [sub_resource type="Animation" id="Animation_y7kg1"]
 length = 0.001
 tracks/0/type = "value"
@@ -389,10 +374,76 @@ tracks/0/keys = {
 "values": [Vector2(-907, -4033)]
 }
 
+[sub_resource type="Animation" id="Animation_kjr17"]
+resource_name = "door_move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-907, -4033), Vector2(-648, -4034)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nymk4"]
 _data = {
 "RESET": SubResource("Animation_y7kg1"),
 "door_move": SubResource("Animation_kjr17")
+}
+
+[sub_resource type="Animation" id="Animation_eset2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/NinePatchRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/NinePatchRect/Label1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/NinePatchRect/Label2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Control/NinePatchRect/Label3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_qw2lk"]
@@ -476,57 +527,6 @@ tracks/1/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_eset2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Control/NinePatchRect:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Control/NinePatchRect/Label1:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/NinePatchRect/Label2:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Control/NinePatchRect/Label3:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_od1fw"]
 _data = {
 "RESET": SubResource("Animation_eset2"),
@@ -597,11 +597,13 @@ tile_map_data = PackedByteArray("AAAEAPD/AAAAAAEAAAAFAPD/AAAAAAEAAAAGAPD/AAAAAAE
 tile_set = SubResource("TileSet_2dr7r")
 
 [node name="blue-floor" type="TileMapLayer" parent="."]
+light_mask = 4
 position = Vector2(-780, 86)
 tile_map_data = PackedByteArray("AAARAPb/AAAAAAAAAAASAPb/AAAAAAAAAAATAPb/AAAAAAAAAAD6//L/AAAAAAAAAAD5//L/AAABAAEAAGD4//L/AAAAAAAAAGD3//L/AAABAAAAAGD2//L/AAABAAEAAFD1//L/AAAAAAAAAFD0//L/AAABAAAAAFD0//H/AAABAAEAAGD0//D/AAAAAAAAAFD0/+//AAABAAAAAAD0/+7/AAABAAEAAAD0/+3/AAABAAAAAADz/+z/AAABAAAAAAD0/+z/AAAAAAAAAAD1/+z/AAAAAAAAAFD0/+v/AAABAAEAAADz/+v/AAABAAEAAFD1/+v/AAABAAEAAFD0//P/AAAAAAAAAFD0//T/AAABAAEAAFD0//X/AAAAAAAAAAD0//b/AAABAAAAAFD0//f/AAABAAEAAFD0//j/AAAAAAEAAFDz//j/AAABAAEAAGDy//j/AAABAAAAAADx//j/AAAAAAAAAADv//j/AAAAAAAAAFDw//j/AAABAAEAAADu//j/AAABAAAAAADt//j/AAABAAAAAADs//j/AAABAAAAAFDr//j/AAAAAAAAAFDp//j/AAAAAAAAAADq//j/AAAAAAEAAFDo//j/AAABAAEAAADn//j/AAABAAAAAADn//n/AAAAAAAAAADn//r/AAAAAAAAAFDn//v/AAABAAAAAADn//3/AAABAAAAAFDn//z/AAABAAEAADDn//7/AAAAAAAAAADn////AAAAAAAAAADn/wAAAAAAAAAAAFDm/wAAAAABAAAAAADm/wEAAAABAAAAAADo/wAAAAABAAAAAFDm////AAAAAAAAAFDo////AAAAAAAAAFDp////AAAAAAAAADDp/wAAAAAAAAEAAADp/wEAAAABAAEAAADl////AAABAAEAAADl/wAAAAABAAEAAFDl/wEAAAAAAAEAAADn/wEAAAABAAEAAFDo/wEAAAAAAAAAAADn//f/AAAAAAAAAADn//b/AAABAAAAAADn//X/AAABAAEAAFDn//T/AAABAAAAAADn//P/AAAAAAAAAFDn//L/AAAAAAEAAFDn//H/AAABAAEAAADn//D/AAABAAEAAFDn/+//AAABAAAAAFDn/+7/AAAAAAAAAADn/+3/AAABAAEAADDm/+3/AAABAAEAAFDm/+7/AAAAAAAAAFDo/+7/AAABAAEAAFDo/+3/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_l3j54")
 
 [node name="blue-walls" type="TileMapLayer" parent="."]
+light_mask = 4
 position = Vector2(-785, 80)
 tile_map_data = PackedByteArray("AAARAPX/AAAAAAAAADASAPX/AAAAAAAAADATAPX/AAAAAAAAADAUAPb/AAAAAAAAAGATAPf/AAAAAAAAAAASAPf/AAAAAAAAAAARAPf/AAAAAAAAAAAUAPX/AAAEAAEAAAAUAPf/AAAEAAEAAFDl/+3/AAABAAEAAGDl/+7/AAABAAEAAGDm/+//AAACAAEAADDo/+//AAACAAEAAFDp/+7/AAABAAEAAFDp/+3/AAABAAEAAFDp/+//AAAEAAEAAFDp/+z/AAAEAAEAAADl/+z/AAAEAAEAAGDl/+//AAAEAAEAADDo//D/AAABAAEAAFDo//H/AAABAAEAAFDo//L/AAABAAEAAFDo//P/AAABAAEAAFDo//T/AAABAAEAAFDo//X/AAABAAEAAFDo//b/AAABAAEAAFDo//f/AAACAAEAAADp//f/AAABAAEAAADq//f/AAABAAEAAADr//f/AAABAAEAAADs//f/AAABAAEAAADt//f/AAABAAEAAADu//f/AAABAAEAAADv//f/AAABAAEAAADw//f/AAABAAEAAADx//f/AAABAAEAAADy//f/AAABAAEAAADz//f/AAACAAEAAGDz//b/AAABAAEAAGDz//X/AAABAAEAAGDz//T/AAABAAEAAGDz//P/AAABAAEAAGDz//L/AAABAAEAAGDz//H/AAABAAEAAGDz//D/AAABAAEAAGDz/+//AAABAAEAAGDz/+7/AAABAAEAAGDz/+3/AAACAAEAADDy/+z/AAABAAEAAGDy/+v/AAABAAEAAGDz/+r/AAABAAEAAAD0/+r/AAABAAEAAAD1/+r/AAABAAEAAAD2/+v/AAABAAEAAFD2/+z/AAABAAEAAFD1/+3/AAACAAEAAFD2/+3/AAAEAAEAAFD2/+r/AAAEAAEAAADy/+r/AAAEAAEAAGDy/+3/AAAEAAEAADD1/+7/AAABAAEAAFD1/+//AAABAAEAAFD1//D/AAABAAEAAFD1//H/AAACAAEAAAD2//H/AAABAAEAAAD3//H/AAABAAEAAAD4//H/AAABAAEAAAD5//H/AAABAAEAAAD6//H/AAABAAEAAAD1//P/AAACAAEAAFD2//P/AAABAAEAADD3//P/AAABAAEAADD4//P/AAABAAEAADD5//P/AAABAAEAADD6//P/AAABAAEAADD1//T/AAABAAEAAFD1//X/AAABAAEAAFD1//b/AAABAAEAAFD1//f/AAABAAEAAFD0//n/AAABAAEAADDz//n/AAABAAEAADDy//n/AAABAAEAADDx//n/AAABAAEAADDw//n/AAABAAEAADDv//n/AAABAAEAADDu//n/AAABAAEAADDt//n/AAABAAEAADDs//n/AAABAAEAADDr//n/AAABAAEAADDq//n/AAABAAEAADDp//n/AAABAAEAADDo//n/AAACAAEAAFDo//r/AAABAAEAAFDo//v/AAABAAEAAFDo//z/AAABAAEAAFDo//3/AAABAAEAAFDo//7/AAACAAEAAADp//7/AAABAAEAAADq////AAABAAEAAFDq/wAAAAABAAEAAFDq/wEAAAABAAEAAFDp/wIAAAABAAEAADDo/wIAAAABAAEAADDn/wIAAAABAAEAADDm/wIAAAABAAEAADDl/wIAAAABAAEAADDk/wEAAAABAAEAAGDk/wAAAAABAAEAAGDk////AAABAAEAAGDl//7/AAABAAEAAADm//7/AAACAAEAAGDm//3/AAABAAEAAGDm//z/AAABAAEAAGDm//v/AAABAAEAAGDm//r/AAABAAEAAGDm//n/AAABAAEAAGDm//j/AAABAAEAAGDm//f/AAABAAEAAGDm//b/AAABAAEAAGDm//X/AAABAAEAAGDm//T/AAABAAEAAGDm//P/AAABAAEAAGDm//L/AAABAAEAAGDm//H/AAABAAEAAGDm//D/AAABAAEAAGDq//7/AAAEAAEAAADk//7/AAAEAAEAAGDk/wIAAAAEAAEAADDq/wIAAAAEAAEAAFD1//n/AAAEAAEAAFA=")
 tile_set = SubResource("TileSet_m3ajd")
