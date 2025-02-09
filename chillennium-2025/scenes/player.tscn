@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bv8nsb38u7kpf"]
+[gd_scene load_steps=27 format=3 uid="uid://bv8nsb38u7kpf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vdy6m"]
 [ext_resource type="Texture2D" uid="uid://ck15p0rk50tgi" path="res://assets/sprites/Player/PlayerSprite_Blue.png" id="2_cidyd"]
@@ -211,58 +211,34 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("DeathLabel:visible")
+tracks/3/path = NodePath("yellow-lantern:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("DeathLabel:modulate")
+tracks/4/path = NodePath("red-lantern:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("yellow-lantern:visible")
+tracks/5/path = NodePath("blue-lantern:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("red-lantern:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("blue-lantern:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -415,7 +391,6 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("red-lantern:visible")
 tracks/2/path = NodePath("CanvasLayer/Control/Died:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -465,8 +440,6 @@ tracks/2/keys = {
 "values": [true]
 }
 
-
-
 [sub_resource type="Animation" id="Animation_0smka"]
 resource_name = "yellow-to-red"
 tracks/0/type = "value"
@@ -488,19 +461,10 @@ tracks/1/path = NodePath("yellow-lantern:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/Control/ColorRect:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -513,31 +477,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/Control/ColorRect:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dsu0h"]
@@ -599,24 +538,6 @@ range_item_cull_mask = 4
 texture = SubResource("GradientTexture2D_xdosh")
 texture_scale = 8.0
 
-[node name="Label" type="Label" parent="."]
-offset_left = -1410.0
-offset_top = -786.0
-offset_right = -720.0
-offset_bottom = -447.0
-theme_override_font_sizes/font_size = 36
-text = "Esc to quit"
-
-[node name="DeathLabel" type="Label" parent="."]
-visible = false
-offset_left = -360.0
-offset_top = -790.0
-offset_right = 330.0
-offset_bottom = -451.0
-theme_override_font_sizes/font_size = 36
-text = "YOU DIED!"
-horizontal_alignment = 1
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_dsu0h")
@@ -647,7 +568,6 @@ texture = ExtResource("6_660hv")
 expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -658,7 +578,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Died" type="TextureRect" parent="CanvasLayer/Control"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 use_parent_material = true
 layout_mode = 1

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/campfire.gd" id="1_kuqtq"]
 [ext_resource type="Texture2D" uid="uid://ceu0vj34kk5gf" path="res://assets/sprites/CampfireAnim.png" id="2_aovax"]
-[ext_resource type="Texture2D" uid="uid://dpskrlh5ou71x" path="res://assets/sprites/GUI/Save.png" id="3_0c0am"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p2p0u"]
 light_mode = 1
