@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dvh5xam4e5wv" path="res://scenes/enemy_0.tscn" id="5_7adbr"]
 [ext_resource type="PackedScene" uid="uid://bv8nsb38u7kpf" path="res://scenes/player.tscn" id="5_cknda"]
 [ext_resource type="PackedScene" uid="uid://dqsk11w6060aq" path="res://scenes/enemy_1.tscn" id="6_6lb63"]
-[ext_resource type="PackedScene" uid="uid://b3eywrgkqll3f" path="res://scenes/campfire.tscn" id="7_1p17b"]
+[ext_resource type="PackedScene" uid="uid://cw3oh6ebhnrbd" path="res://scenes/campfire.tscn" id="7_1p17b"]
 [ext_resource type="PackedScene" uid="uid://defva11l0d3l8" path="res://scenes/switch.tscn" id="7_to1sm"]
 [ext_resource type="PackedScene" uid="uid://m6bs4fg1q8hn" path="res://scenes/spikes_2.tscn" id="8_8ljx2"]
 [ext_resource type="Script" path="res://scripts/l2-switch.gd" id="8_523bc"]
@@ -3451,7 +3451,7 @@ DestinationScene = "level-2"
 
 [node name="Campfire2" parent="." instance=ExtResource("7_1p17b")]
 position = Vector2(-13566, 604.378)
-DestinationScene = "level -3"
+DestinationScene = "level-3"
 
 [node name="Switch" parent="." instance=ExtResource("7_to1sm")]
 modulate = Color(0.423651, 0.423651, 0.423651, 1)
@@ -3481,3 +3481,4 @@ position = Vector2(-9994.43, 609.458)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 light_mask = 7
 position = Vector2(-138, -42)
+blend_mode = 1

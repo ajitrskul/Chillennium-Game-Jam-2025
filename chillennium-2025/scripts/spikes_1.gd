@@ -2,12 +2,11 @@ extends Area2D
 
 @onready var timer: Timer = $Timer
 
-
 #is player alive -> enemy_0,1,2.gd -> should enemy move.
 var alive: bool = true
 
 func _on_body_entered(body: Node2D) -> void:
-	
+	print(body.name)
 	#checks body is player
 	if body.name != "Player":
 		return
