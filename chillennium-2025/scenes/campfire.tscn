@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw3oh6ebhnrbd"]
+[gd_scene load_steps=8 format=3 uid="uid://dytuyj8ltplvb"]
 
 [ext_resource type="Script" path="res://scripts/campfire.gd" id="1_kuqtq"]
 [ext_resource type="Texture2D" uid="uid://ceu0vj34kk5gf" path="res://assets/sprites/CampfireAnim.png" id="2_aovax"]

@@ -1,11 +1,8 @@
-[gd_scene load_steps=20 format=4 uid="uid://den0meql5rp6i"]
+[gd_scene load_steps=14 format=4 uid="uid://den0meql5rp6i"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_rp2ix"]
 [ext_resource type="Texture2D" uid="uid://c2uvsbehie7ke" path="res://assets/sprites/merged-tile-map.png" id="2_3763s"]
-[ext_resource type="PackedScene" uid="uid://kpdbgsevhglp" path="res://scenes/moveable_wall.tscn" id="5_ilbgd"]
 [ext_resource type="Texture2D" uid="uid://dtb45gujtu08e" path="res://assets/sprites/WallTiles.png" id="5_qf2pw"]
-[ext_resource type="Script" path="res://scripts/moveable_wall.gd" id="6_bhb3q"]
-[ext_resource type="PackedScene" uid="uid://defva11l0d3l8" path="res://scenes/switch.tscn" id="7_d2ukp"]
 [ext_resource type="PackedScene" uid="uid://bv8nsb38u7kpf" path="res://scenes/player.tscn" id="50_q6fvb"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_he5px"]
@@ -78,42 +75,6 @@ sources/0 = SubResource("TileSetAtlasSource_ym43x")
 closed = false
 polygon = PackedVector2Array(1612, 94, -513, 99)
 
-[sub_resource type="Animation" id="Animation_uewxm"]
-resource_name = "door_move"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(4223, 3806), Vector2(4483, 3810)]
-}
-
-[sub_resource type="Animation" id="Animation_6ohj2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4223, 3806)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hkicb"]
-_data = {
-"RESET": SubResource("Animation_6ohj2"),
-"door_move": SubResource("Animation_uewxm")
-}
-
 [node name="game" type="Node2D"]
 script = ExtResource("1_rp2ix")
 
@@ -142,16 +103,3 @@ occluder = SubResource("OccluderPolygon2D_faaui")
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
 blend_mode = 1
-
-[node name="MoveableWall" parent="." instance=ExtResource("5_ilbgd")]
-position = Vector2(4223, 3806)
-script = ExtResource("6_bhb3q")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MoveableWall"]
-libraries = {
-"": SubResource("AnimationLibrary_hkicb")
-}
-
-[node name="Switch" parent="." instance=ExtResource("7_d2ukp")]
-position = Vector2(4719, 3194)
-toObject = "MoveableWall"
