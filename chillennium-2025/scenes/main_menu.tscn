@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://duhi772qe06vr"]
+[gd_scene load_steps=11 format=4 uid="uid://duhi772qe06vr"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_dodrj"]
 [ext_resource type="Theme" uid="uid://beycyjp5mb7nb" path="res://assets/Themes/GUI Theme.tres" id="1_oqvqf"]
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="3_w5xch"]
 [ext_resource type="Texture2D" uid="uid://cy7xqs10fkafu" path="res://assets/sprites/GUI/9GridGUI.png" id="4_q3cf5"]
+[ext_resource type="Texture2D" uid="uid://bo0d7fj6m55ko" path="res://assets/sprites/GUI/TItle.png" id="5_wp3fb"]
+[ext_resource type="AudioStream" uid="uid://cbrelgmmodfan" path="res://assets/music/MainMenuSong.wav" id="6_ph51d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymeqb"]
 texture = ExtResource("3_w5xch")
@@ -17,6 +19,15 @@ texture_region_size = Vector2i(256, 256)
 tile_size = Vector2i(256, 256)
 sources/2 = SubResource("TileSetAtlasSource_ymeqb")
 
+[sub_resource type="Gradient" id="Gradient_d0gdh"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r0ct4"]
+gradient = SubResource("Gradient_d0gdh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.866973, 0.169725)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -24,6 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("1_oqvqf")
 script = ExtResource("1_dodrj")
 
@@ -35,6 +47,8 @@ tile_map_data = PackedByteArray("AAABAAEAAgAAAAAAAAACAAEAAgABAAAAAFADAAEAAgABAAA
 tile_set = SubResource("TileSet_y6gtl")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+light_mask = 2
+visibility_layer = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,6 +61,7 @@ offset_right = 292.5
 offset_bottom = 276.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 texture = ExtResource("4_q3cf5")
 region_rect = Rect2(9, 1, 238, 249)
 patch_margin_left = 86
@@ -54,7 +69,23 @@ patch_margin_top = 81
 patch_margin_right = 81
 patch_margin_bottom = 58
 
+[node name="TItle" type="Sprite2D" parent="NinePatchRect"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(296.67, 178.67)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_wp3fb")
+
+[node name="PointLight2D" type="PointLight2D" parent="NinePatchRect"]
+position = Vector2(294.5, 286.5)
+scale = Vector2(11.0703, 11.0703)
+energy = 1.5
+blend_mode = 1
+texture = SubResource("GradientTexture2D_r0ct4")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+light_mask = 2
+visibility_layer = 2
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -63,25 +94,30 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -44.0
-offset_top = -33.0
+offset_top = 51.0
 offset_right = 44.0
-offset_bottom = 33.0
+offset_bottom = 174.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 theme_override_constants/separation = 25
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
+light_mask = 2
+visibility_layer = 2
 layout_mode = 2
 theme = ExtResource("1_oqvqf")
 text = "Start"
 
-[node name="Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Options"
-
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
+light_mask = 2
+visibility_layer = 2
 layout_mode = 2
 text = "Quit"
+
+[node name="MainMenuSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ph51d")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
