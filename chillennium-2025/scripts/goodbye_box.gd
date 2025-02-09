@@ -16,4 +16,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		print("Good Job!")
 		await get_tree().create_timer(1).timeout
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/goodbye_scene.tscn")
