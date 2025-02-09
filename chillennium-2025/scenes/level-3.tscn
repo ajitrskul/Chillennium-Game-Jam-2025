@@ -1,11 +1,11 @@
-[gd_scene load_steps=61 format=4 uid="uid://bo8x6j0peph11"]
+[gd_scene load_steps=62 format=4 uid="uid://bo8x6j0peph11"]
 
 [ext_resource type="Script" path="res://scripts/level-1.gd" id="1_v2ru8"]
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="2_ub5bl"]
 [ext_resource type="Texture2D" uid="uid://dtb45gujtu08e" path="res://assets/sprites/WallTiles.png" id="3_x41aa"]
 [ext_resource type="Texture2D" uid="uid://c2uvsbehie7ke" path="res://assets/sprites/merged-tile-map.png" id="4_jl3cy"]
 [ext_resource type="PackedScene" uid="uid://bv8nsb38u7kpf" path="res://scenes/player.tscn" id="5_rm28d"]
-[ext_resource type="PackedScene" uid="uid://cw3oh6ebhnrbd" path="res://scenes/campfire.tscn" id="6_njbas"]
+[ext_resource type="PackedScene" uid="uid://dytuyj8ltplvb" path="res://scenes/campfire.tscn" id="6_njbas"]
 [ext_resource type="PackedScene" uid="uid://defva11l0d3l8" path="res://scenes/switch.tscn" id="7_rnxx6"]
 [ext_resource type="PackedScene" uid="uid://kpdbgsevhglp" path="res://scenes/moveable_wall.tscn" id="8_k4igf"]
 [ext_resource type="Script" path="res://scripts/l3__moveable_wall.gd" id="9_ohe6q"]
@@ -15,8 +15,9 @@
 [ext_resource type="Theme" path="res://assets/Themes/LabelText.tres" id="12_y0bdk"]
 [ext_resource type="Script" path="res://scripts/sign_3.gd" id="13_0kxpv"]
 [ext_resource type="Texture2D" uid="uid://cy7xqs10fkafu" path="res://assets/sprites/GUI/9GridGUI.png" id="14_xbv12"]
-[ext_resource type="PackedScene" uid="uid://cg64g4rtbkq1b" path="res://scenes/enemy_2.tscn" id="15_q7n0k"]
+[ext_resource type="PackedScene" uid="uid://bop5j78cfa5d6" path="res://scenes/enemy_2.tscn" id="15_q7n0k"]
 [ext_resource type="PackedScene" uid="uid://dqsk11w6060aq" path="res://scenes/enemy_1.tscn" id="16_tj26i"]
+[ext_resource type="Script" path="res://scripts/enemy_2.gd" id="17_nb2gn"]
 [ext_resource type="Script" path="res://scripts/goodbye_box.gd" id="17_nye1f"]
 [ext_resource type="AudioStream" uid="uid://psa17fkeo4dv" path="res://assets/music/LabryinthAmbient.wav" id="18_bxatc"]
 
@@ -849,26 +850,35 @@ text = "3
 horizontal_alignment = 1
 
 [node name="Enemy2" parent="." instance=ExtResource("15_q7n0k")]
-light_mask = 4
 material = SubResource("CanvasItemMaterial_47hw3")
 position = Vector2(-3742, -4994)
+script = ExtResource("17_nb2gn")
 
 [node name="Enemy3" parent="." instance=ExtResource("15_q7n0k")]
+light_mask = 1
 position = Vector2(-5791, -1812)
+script = ExtResource("17_nb2gn")
 
 [node name="Enemy4" parent="." instance=ExtResource("15_q7n0k")]
+light_mask = 1
 position = Vector2(-7047, -4168)
+script = ExtResource("17_nb2gn")
 
 [node name="Enemy1" parent="." instance=ExtResource("16_tj26i")]
+light_mask = 1
 position = Vector2(-7123, 308)
 
 [node name="Enemy5" parent="." instance=ExtResource("16_tj26i")]
+light_mask = 1
 position = Vector2(3279, -1654)
 
 [node name="Enemy6" parent="." instance=ExtResource("15_q7n0k")]
+light_mask = 1
 position = Vector2(3272, -3427)
+script = ExtResource("17_nb2gn")
 
 [node name="Enemy7" parent="." instance=ExtResource("16_tj26i")]
+light_mask = 1
 position = Vector2(-3007, -1815)
 
 [node name="GoodbyeBox" type="Area2D" parent="."]
