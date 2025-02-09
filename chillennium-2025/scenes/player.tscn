@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bv8nsb38u7kpf"]
+[gd_scene load_steps=17 format=3 uid="uid://bv8nsb38u7kpf"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_vdy6m"]
 [ext_resource type="Texture2D" uid="uid://ck15p0rk50tgi" path="res://assets/sprites/Player/PlayerSprite_Blue.png" id="2_cidyd"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dasm70qdley15" path="res://assets/sprites/Player/PlayerSprite_Red.png" id="4_r77a8"]
 [ext_resource type="Texture2D" uid="uid://bxk1snsgm0cx4" path="res://assets/sprites/GUI/Esc.png" id="6_660hv"]
 [ext_resource type="Texture2D" uid="uid://buno14ttm05ja" path="res://assets/sprites/GUI/YouDied.png" id="7_q4v4o"]
+[ext_resource type="AudioStream" uid="uid://dis7kbb1hcxnw" path="res://assets/music/YouDied.wav" id="8_a48pl"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_enfxm"]
 light_mode = 1
@@ -134,6 +135,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_t7rx4"]
 length = 0.001
@@ -208,6 +221,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dsu0h"]
@@ -302,3 +327,6 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_q4v4o")
 expand_mode = 1
 stretch_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_a48pl")
