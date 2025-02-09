@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dpy0usf416jfm" path="res://scenes/killzone.tscn" id="2_rpd8s"]
 [ext_resource type="Script" path="res://scripts/killzone-0.gd" id="4_25hv1"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4wb57"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w7n4q"]
 light_mode = 2
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3yr6j"]
@@ -57,8 +57,6 @@ radius = 586.413
 radius = 76.0
 
 [node name="Enemy0" type="CharacterBody2D"]
-modulate = Color(0.347817, 0.347817, 0.347817, 1)
-material = SubResource("CanvasItemMaterial_4wb57")
 collision_mask = 7
 script = ExtResource("1_npkwg")
 

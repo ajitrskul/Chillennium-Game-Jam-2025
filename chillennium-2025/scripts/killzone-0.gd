@@ -13,6 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	elif body.current_lantern_num == 0:
 		Engine.time_scale = 0.5 #slows down time
+		body.get_node("AudioStreamPlayer").playing = true
 		body.get_node("CollisionShape2D").queue_free() #deletes player hitbox
 		timer.start() #starts countdown before scene reset
 		

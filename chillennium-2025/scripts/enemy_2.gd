@@ -11,7 +11,6 @@ var playerInRange: bool = false
 var direction = Vector2.ZERO
 @onready var player: Player = $"../Player"
 
-
 func _ready() -> void:
 	animated_sprite_2d.sprite_frames.set_animation_speed("new_animation", 2)
 

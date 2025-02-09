@@ -1,0 +1,141 @@
+[gd_scene load_steps=11 format=3 uid="uid://l5tpbiyjym83"]
+
+[ext_resource type="Script" path="res://scripts/blue_lantern.gd" id="1_a2fvm"]
+[ext_resource type="Texture2D" uid="uid://b4vofa77lvrkg" path="res://assets/sprites/Player/Lantern_Blue.png" id="2_2ea7c"]
+[ext_resource type="AudioStream" uid="uid://bo20fu5y3pbhr" path="res://assets/music/LanternSwap.wav" id="3_621k2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1oqae"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_oeg0e"]
+offsets = PackedFloat32Array(0, 0.681818)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lwyy4"]
+gradient = SubResource("Gradient_oeg0e")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykn6d"]
+radius = 23.0
+
+[sub_resource type="Animation" id="Animation_2b1a7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.466667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_sqiph"]
+resource_name = "pick_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.933333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.75, 0.75), Vector2(0.5, 0.5), Vector2(0.25, 0.25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pxpe1"]
+_data = {
+"RESET": SubResource("Animation_2b1a7"),
+"pick_up": SubResource("Animation_sqiph")
+}
+
+[node name="blue-lantern" type="Area2D"]
+material = SubResource("CanvasItemMaterial_1oqae")
+script = ExtResource("1_a2fvm")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+modulate = Color(0.362829, 0.362829, 0.362829, 1)
+light_mask = 7
+color = Color(0.286275, 0.713726, 1, 1)
+energy = 10.0
+range_item_cull_mask = 4
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_lwyy4")
+texture_scale = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.374139, 0.374139, 0.374139, 1)
+light_mask = 2
+texture = ExtResource("2_2ea7c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ykn6d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pxpe1")
+}
+speed_scale = 2.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_621k2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
