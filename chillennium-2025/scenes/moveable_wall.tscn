@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://kpdbgsevhglp"]
+
+[ext_resource type="Texture2D" uid="uid://dtb45gujtu08e" path="res://assets/sprites/WallTiles.png" id="1_vr7iu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sm55"]
+size = Vector2(251, 42)
+
+[node name="MoveableWall" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vr7iu")
+region_enabled = true
+region_rect = Rect2(1023.02, 41.1036, 258.078, 57.9784)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_1sm55")
