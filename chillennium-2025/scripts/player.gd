@@ -24,6 +24,8 @@ func _ready() -> void:
 		return
 	elif get_parent().name == "level-2":
 		has_red = true
+		sprite.rotation_degrees = 90
+		current_lantern_node.position = Vector2(-85, -40)
 	elif get_parent().name == "level-3":
 		has_red = true
 		has_blue = true
