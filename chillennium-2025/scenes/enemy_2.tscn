@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bop5j78cfa5d6"]
+[gd_scene load_steps=13 format=3 uid="uid://bop5j78cfa5d6"]
 
-[ext_resource type="Script" path="res://scripts/enemy_0.gd" id="1_udtns"]
+[ext_resource type="Script" path="res://scripts/enemy_2.gd" id="1_ugd2m"]
 [ext_resource type="Texture2D" uid="uid://doxixmrtkc7hw" path="res://assets/sprites/Enemies/BlueSlimeSprite.png" id="2_mmrjw"]
 [ext_resource type="PackedScene" uid="uid://dpy0usf416jfm" path="res://scenes/killzone.tscn" id="3_pypxg"]
+[ext_resource type="Script" path="res://scripts/killzone-2.gd" id="4_f31n5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4atnn"]
 atlas = ExtResource("2_mmrjw")
@@ -50,7 +51,7 @@ radius = 586.413
 radius = 76.0
 
 [node name="Enemy2" type="CharacterBody2D"]
-script = ExtResource("1_udtns")
+script = ExtResource("1_ugd2m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ccugm")
@@ -58,6 +59,7 @@ animation = &"new_animation"
 autoplay = "new_animation"
 
 [node name="killzone" parent="." instance=ExtResource("3_pypxg")]
+script = ExtResource("4_f31n5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 position = Vector2(1, -2)
