@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://dtb45gujtu08e" path="res://assets/sprites/WallTiles.png" id="3_cog8o"]
 [ext_resource type="Texture2D" uid="uid://c2uvsbehie7ke" path="res://assets/sprites/merged-tile-map.png" id="4_gb8ho"]
 [ext_resource type="PackedScene" uid="uid://bv8nsb38u7kpf" path="res://scenes/player.tscn" id="5_cknda"]
-[ext_resource type="PackedScene" uid="uid://dcsa4ik0f3bxj" path="res://scenes/red_lantern.tscn" id="6_gqbi5"]
-[ext_resource type="PackedScene" uid="uid://cw3oh6ebhnrbd" path="res://scenes/campfire.tscn" id="7_1p17b"]
+[ext_resource type="PackedScene" path="res://scenes/red_lantern.tscn" id="6_gqbi5"]
+[ext_resource type="PackedScene" uid="uid://dytuyj8ltplvb" path="res://scenes/campfire.tscn" id="7_1p17b"]
 [ext_resource type="PackedScene" uid="uid://dvh5xam4e5wv" path="res://scenes/enemy_0.tscn" id="8_fua7d"]
 [ext_resource type="AudioStream" uid="uid://psa17fkeo4dv" path="res://assets/music/LabryinthAmbient.wav" id="9_aduvu"]
-[ext_resource type="Theme" uid="uid://crmmvokeriknc" path="res://assets/Themes/LabelText.tres" id="10_ee7g6"]
+[ext_resource type="Theme" path="res://assets/Themes/LabelText.tres" id="10_ee7g6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xfy1i"]
 light_mode = 2
