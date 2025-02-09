@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://s66kf1hnpnmu" path="res://assets/sprites/Player/PlayerSprite_Yellow.png" id="2_d133y"]
 [ext_resource type="Texture2D" uid="uid://d3xls32ehtj1e" path="res://assets/sprites/Player/PlayerSprite_NoArm.png" id="3_8spwq"]
 [ext_resource type="Texture2D" uid="uid://dasm70qdley15" path="res://assets/sprites/Player/PlayerSprite_Red.png" id="4_r77a8"]
+[ext_resource type="Texture2D" uid="uid://bxk1snsgm0cx4" path="res://assets/sprites/GUI/Esc.png" id="6_660hv"]
+[ext_resource type="Texture2D" uid="uid://buno14ttm05ja" path="res://assets/sprites/GUI/YouDied.png" id="7_q4v4o"]
+[ext_resource type="AudioStream" uid="uid://dis7kbb1hcxnw" path="res://assets/music/YouDied.wav" id="8_a48pl"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_enfxm"]
 light_mode = 1
@@ -109,7 +112,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("DeathLabel:visible")
+tracks/2/path = NodePath("CanvasLayer/Control/Died:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -121,7 +124,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("DeathLabel:modulate")
+tracks/3/path = NodePath("CanvasLayer/Control/Died:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -129,6 +132,42 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Control/ColorRect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Control/ColorRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_t7rx4"]
@@ -331,8 +370,8 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -377,6 +416,7 @@ tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("red-lantern:visible")
+tracks/2/path = NodePath("CanvasLayer/Control/Died:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -425,6 +465,8 @@ tracks/2/keys = {
 "values": [true]
 }
 
+
+
 [sub_resource type="Animation" id="Animation_0smka"]
 resource_name = "yellow-to-red"
 tracks/0/type = "value"
@@ -446,6 +488,15 @@ tracks/1/path = NodePath("yellow-lantern:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Control/ColorRect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -462,6 +513,31 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Control/ColorRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dsu0h"]
@@ -545,3 +621,62 @@ horizontal_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_dsu0h")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Esc" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.032
+anchor_top = 0.048
+anchor_right = 0.151
+anchor_bottom = 0.099
+offset_left = 0.135998
+offset_top = -0.104
+offset_right = 0.0479889
+offset_bottom = -0.152008
+texture = ExtResource("6_660hv")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Died" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.257
+anchor_top = 0.357
+anchor_right = 0.756
+anchor_bottom = 0.606
+offset_left = 279.936
+offset_top = 92.664
+offset_right = -294.912
+offset_bottom = -68.688
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_q4v4o")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_a48pl")

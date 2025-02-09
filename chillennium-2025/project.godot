@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 SceneChanger="*res://scenes/scene_changer.tscn"
 
-[display]
-
-window/size/mode=3
-
 [input]
 
 move_left={
