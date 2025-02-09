@@ -244,6 +244,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Control/Died:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_k8cur"]
 resource_name = "blue-to-red"
@@ -391,7 +403,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/Died:visible")
+tracks/2/path = NodePath("red-lantern:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -578,6 +590,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Died" type="TextureRect" parent="CanvasLayer/Control"]
+visible = false
 modulate = Color(1, 1, 1, 0)
 use_parent_material = true
 layout_mode = 1
