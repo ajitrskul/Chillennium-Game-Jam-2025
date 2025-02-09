@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://bkadba6mpmtjh"]
+[gd_scene load_steps=7 format=4 uid="uid://bu0dafpx5dxmi"]
 
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="1_i08ro"]
 [ext_resource type="Script" path="res://scenes/goodbye_scene.gd" id="1_idcq6"]
-[ext_resource type="FontFile" uid="uid://b5l0em8ifmkgn" path="res://assets/fonts/northampton.ttf" id="3_jaseb"]
+[ext_resource type="Theme" uid="uid://crmmvokeriknc" path="res://assets/Themes/LabelText.tres" id="3_j02si"]
 [ext_resource type="AudioStream" uid="uid://cbrelgmmodfan" path="res://assets/music/MainMenuSong.wav" id="4_qe8l7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_32dyc"]
@@ -1037,11 +1037,6 @@ texture_region_size = Vector2i(256, 256)
 tile_size = Vector2i(256, 256)
 sources/2 = SubResource("TileSetAtlasSource_32dyc")
 
-[sub_resource type="Theme" id="Theme_qlgsb"]
-Label/colors/font_color = Color(1, 0.799257, 0.468336, 1)
-Label/font_sizes/font_size = 78
-Label/fonts/font = ExtResource("3_jaseb")
-
 [node name="GoodbyeScene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -1070,7 +1065,7 @@ offset_right = 50.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_qlgsb")
+theme = ExtResource("3_j02si")
 text = "You've Escaped
 The Labyrinth"
 horizontal_alignment = 1

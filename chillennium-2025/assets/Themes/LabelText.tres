@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://crmmvokeriknc"]
+
+[ext_resource type="FontFile" uid="uid://b5l0em8ifmkgn" path="res://assets/fonts/northampton.ttf" id="1_ff5ru"]
+
+[resource]
+Label/colors/font_color = Color(1, 0.799257, 0.468336, 1)
+Label/font_sizes/font_size = 78
+Label/fonts/font = ExtResource("1_ff5ru")
