@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkx5a36xvvxky"]
+
+[ext_resource type="Script" path="res://scripts/spikes_1.gd" id="1_qfs0n"]
+[ext_resource type="Texture2D" uid="uid://dko5jtdaq2foe" path="res://assets/sprites/SpikePit.png" id="2_23t8j"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jafmx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gw8g"]
+size = Vector2(209.014, 212.76)
+
+[node name="spikes-1" type="Area2D"]
+light_mask = 0
+script = ExtResource("1_qfs0n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.172549, 0.172549, 0.172549, 1)
+light_mask = 2
+material = SubResource("CanvasItemMaterial_jafmx")
+texture = ExtResource("2_23t8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.39355, 1.04258)
+shape = SubResource("RectangleShape2D_0gw8g")

@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bop5j78cfa5d6"]
+[gd_scene load_steps=13 format=3 uid="uid://cg64g4rtbkq1b"]
 
 [ext_resource type="Script" path="res://scripts/enemy_0.gd" id="1_udtns"]
 [ext_resource type="Texture2D" uid="uid://doxixmrtkc7hw" path="res://assets/sprites/Enemies/BlueSlimeSprite.png" id="2_mmrjw"]
 [ext_resource type="PackedScene" uid="uid://dpy0usf416jfm" path="res://scenes/killzone.tscn" id="3_pypxg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mh1pb"]
+light_mode = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4atnn"]
 atlas = ExtResource("2_mmrjw")
@@ -50,9 +53,13 @@ radius = 586.413
 radius = 76.0
 
 [node name="Enemy2" type="CharacterBody2D"]
+light_mask = 4
 script = ExtResource("1_udtns")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.337255, 0.337255, 0.337255, 1)
+light_mask = 4
+material = SubResource("CanvasItemMaterial_mh1pb")
 sprite_frames = SubResource("SpriteFrames_ccugm")
 animation = &"new_animation"
 autoplay = "new_animation"

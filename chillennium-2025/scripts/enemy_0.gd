@@ -33,7 +33,7 @@ func _on_activation_body_exited(body: Node2D) -> void:
 
 	
 func _physics_process(_delta: float) -> void:
-	if player.current_lantern_num == 0:
+	if player.current_lantern_num != null and player.current_lantern_num == 0:
 		if get_collision_layer_value(1) == false:
 			set_collision_layer_value(1, true)
 		
