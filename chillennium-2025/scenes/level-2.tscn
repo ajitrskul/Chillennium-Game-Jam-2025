@@ -1,6 +1,6 @@
 [gd_scene load_steps=53 format=4 uid="uid://duxkn8ff8gtjm"]
 
-[ext_resource type="Script" path="res://scripts/level-1.gd" id="1_e7dio"]
+[ext_resource type="Script" path="res://scripts/level-3.gd" id="1_e7dio"]
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="2_5sern"]
 [ext_resource type="Texture2D" uid="uid://dtb45gujtu08e" path="res://assets/sprites/WallTiles.png" id="3_cog8o"]
 [ext_resource type="Texture2D" uid="uid://c2uvsbehie7ke" path="res://assets/sprites/merged-tile-map.png" id="4_gb8ho"]
@@ -9,13 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://dqsk11w6060aq" path="res://scenes/enemy_1.tscn" id="6_6lb63"]
 [ext_resource type="PackedScene" uid="uid://dytuyj8ltplvb" path="res://scenes/campfire.tscn" id="7_1p17b"]
 [ext_resource type="PackedScene" uid="uid://defva11l0d3l8" path="res://scenes/switch.tscn" id="7_to1sm"]
-[ext_resource type="PackedScene" uid="uid://m6bs4fg1q8hn" path="res://scenes/spikes_2.tscn" id="8_8ljx2"]
+[ext_resource type="PackedScene" path="res://scenes/spikes_2.tscn" id="8_8ljx2"]
 [ext_resource type="Script" path="res://scripts/l2-switch.gd" id="8_523bc"]
-[ext_resource type="PackedScene" uid="uid://dkx5a36xvvxky" path="res://scenes/spikes_1.tscn" id="8_iwe1a"]
+[ext_resource type="PackedScene" path="res://scenes/spikes_1.tscn" id="8_iwe1a"]
 [ext_resource type="PackedScene" uid="uid://kpdbgsevhglp" path="res://scenes/moveable_wall.tscn" id="8_qphyh"]
 [ext_resource type="Script" path="res://scripts/l2_moveable_wall.gd" id="9_ebs3e"]
-[ext_resource type="PackedScene" uid="uid://l5tpbiyjym83" path="res://scenes/blue_lantern.tscn" id="11_wnpon"]
-[ext_resource type="Theme" uid="uid://crmmvokeriknc" path="res://assets/Themes/LabelText.tres" id="16_82srh"]
+[ext_resource type="PackedScene" uid="uid://dk4yyxqi6xh34" path="res://scenes/blue_lantern.tscn" id="11_wnpon"]
+[ext_resource type="Theme" path="res://assets/Themes/LabelText.tres" id="16_82srh"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xfy1i"]
 light_mode = 2
@@ -3482,6 +3482,7 @@ position = Vector2(-9994.43, 609.458)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 light_mask = 7
 position = Vector2(-138, -42)
+blend_mode = 1
 
 [node name="Label" type="Label" parent="."]
 offset_left = -10065.8

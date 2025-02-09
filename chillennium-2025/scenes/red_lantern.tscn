@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcsa4ik0f3bxj"]
+[gd_scene load_steps=11 format=3 uid="uid://dk8f8cbhbmc8c"]
 
 [ext_resource type="Texture2D" uid="uid://c18vw5djuvdtd" path="res://assets/sprites/Player/Lanterns_Red.png" id="1_21b1e"]
 [ext_resource type="Script" path="res://scripts/red_lantern.gd" id="1_s16ce"]
