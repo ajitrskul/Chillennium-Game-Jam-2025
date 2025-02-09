@@ -1,11 +1,23 @@
-[gd_scene load_steps=29 format=4 uid="uid://dfyuidcl7xnfn"]
+[gd_scene load_steps=54 format=4 uid="uid://bo8x6j0peph11"]
 
 [ext_resource type="Script" path="res://scripts/level-1.gd" id="1_v2ru8"]
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="2_ub5bl"]
 [ext_resource type="Texture2D" uid="uid://dtb45gujtu08e" path="res://assets/sprites/WallTiles.png" id="3_x41aa"]
 [ext_resource type="Texture2D" uid="uid://c2uvsbehie7ke" path="res://assets/sprites/merged-tile-map.png" id="4_jl3cy"]
 [ext_resource type="PackedScene" uid="uid://bv8nsb38u7kpf" path="res://scenes/player.tscn" id="5_rm28d"]
-[ext_resource type="PackedScene" uid="uid://b3eywrgkqll3f" path="res://scenes/campfire.tscn" id="6_njbas"]
+[ext_resource type="PackedScene" uid="uid://dytuyj8ltplvb" path="res://scenes/campfire.tscn" id="6_njbas"]
+[ext_resource type="PackedScene" uid="uid://defva11l0d3l8" path="res://scenes/switch.tscn" id="7_rnxx6"]
+[ext_resource type="PackedScene" uid="uid://kpdbgsevhglp" path="res://scenes/moveable_wall.tscn" id="8_k4igf"]
+[ext_resource type="Script" path="res://scripts/l3__moveable_wall.gd" id="9_ohe6q"]
+[ext_resource type="Texture2D" uid="uid://bslaiy5gku8ui" path="res://assets/sprites/Sign.png" id="10_hlvki"]
+[ext_resource type="Script" path="res://scripts/sign_1.gd" id="11_m37xc"]
+[ext_resource type="Script" path="res://scripts/sign_2.gd" id="12_c48kv"]
+[ext_resource type="Script" path="res://scripts/sign_3.gd" id="13_0kxpv"]
+[ext_resource type="Texture2D" uid="uid://cy7xqs10fkafu" path="res://assets/sprites/GUI/9GridGUI.png" id="14_xbv12"]
+[ext_resource type="PackedScene" uid="uid://bop5j78cfa5d6" path="res://scenes/enemy_2.tscn" id="15_q7n0k"]
+[ext_resource type="PackedScene" uid="uid://dqsk11w6060aq" path="res://scenes/enemy_1.tscn" id="16_tj26i"]
+[ext_resource type="Script" path="res://scripts/goodbye_box.gd" id="17_nye1f"]
+[ext_resource type="AudioStream" uid="uid://psa17fkeo4dv" path="res://assets/music/LabryinthAmbient.wav" id="18_bxatc"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xfy1i"]
 
@@ -285,6 +297,47 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ym43x")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pxloe"]
+texture = ExtResource("2_ub5bl")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_l3j54"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_pxloe")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2qg7m"]
+texture = ExtResource("3_x41aa")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, -80, -128, -82)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, -80, -128, -82)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, -80, -74.0345, -81.5784, -76, 128, -128, 128)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(128, -128, -128, -128, -128, -80, 74.0345, -81.5784, 76, 128, 128, 128)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -86, 128, -84, 128, -38, -128, -38)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, 128, 128, 128, 128, 80, -128, 82)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, 128, 128, 128, 128, 80, -128, 82)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, 128, 128, 128, 128, 80, -74.0345, 81.5784, -76, -128, -128, -128)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(128, 128, -128, 128, -128, 80, 74.0345, 81.5784, 76, -128, 128, -128)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, 82, -72, 80, -76, 128, -128, 128)
+
+[sub_resource type="TileSet" id="TileSet_m3ajd"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_2qg7m")
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yitj8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17v8a"]
@@ -307,7 +360,186 @@ tile_size = Vector2i(256, 256)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_17v8a")
 
-[node name="level-2" type="Node2D"]
+[sub_resource type="Animation" id="Animation_y7kg1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-907, -4033)]
+}
+
+[sub_resource type="Animation" id="Animation_kjr17"]
+resource_name = "door_move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-907, -4033), Vector2(-648, -4034)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nymk4"]
+_data = {
+"RESET": SubResource("Animation_y7kg1"),
+"door_move": SubResource("Animation_kjr17")
+}
+
+[sub_resource type="Animation" id="Animation_eset2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/NinePatchRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/NinePatchRect/Label1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/NinePatchRect/Label2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Control/NinePatchRect/Label3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qw2lk"]
+resource_name = "Sign1Disp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/NinePatchRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/NinePatchRect/Label1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_4bdfj"]
+resource_name = "Sign2Disp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/NinePatchRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/NinePatchRect/Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_hq120"]
+resource_name = "Sign3Disp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control/NinePatchRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/NinePatchRect/Label3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_od1fw"]
+_data = {
+"RESET": SubResource("Animation_eset2"),
+"Sign1Disp": SubResource("Animation_qw2lk"),
+"Sign2Disp": SubResource("Animation_4bdfj"),
+"Sign3Disp": SubResource("Animation_hq120")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_unhov"]
+size = Vector2(261.25, 198)
+
+[node name="level-3" type="Node2D"]
 position = Vector2(906, 42)
 script = ExtResource("1_v2ru8")
 
@@ -342,34 +574,46 @@ tile_set = SubResource("TileSet_qh1wx")
 [node name="yellow-floor" type="TileMapLayer" parent="."]
 material = SubResource("CanvasItemMaterial_u2e27")
 position = Vector2(-2062, -7849)
-tile_map_data = PackedByteArray("AAAGAB4AAAABAAAAAGAGAB8AAAAAAAEAADAGACAAAAABAAEAAFAGAB0AAAABAAAAAAAGABwAAAAAAAAAAGAFABwAAAABAAAAAFAFAB4AAAAAAAAAADAFAB0AAAABAAEAADAFACAAAAABAAEAADAEAB4AAAABAAEAAAAEAB8AAAABAAEAAGAFAB8AAAAAAAAAAAAEACAAAAAAAAAAADADAB8AAAABAAAAAFAEABwAAAABAAAAADADAB0AAAAAAAAAAAAEAB0AAAAAAAEAAFADAB4AAAABAAEAAAADABwAAAAAAAAAADADACAAAAABAAAAAGACACAAAAABAAEAAAACAB8AAAAAAAAAADACAB4AAAABAAAAADACAB0AAAABAAEAAAACABwAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAGAB4AAAABAAAAAGAGAB8AAAAAAAEAADAGACAAAAABAAEAAFAGAB0AAAABAAAAAAAGABwAAAAAAAAAAGAFABwAAAABAAAAAFAFAB4AAAAAAAAAADAFAB0AAAABAAEAADAFACAAAAABAAEAADAEAB4AAAABAAEAAAAEAB8AAAABAAEAAGAFAB8AAAAAAAAAAAAEACAAAAAAAAAAADADAB8AAAABAAAAAFAEABwAAAABAAAAADADAB0AAAAAAAAAAAAEAB0AAAAAAAEAAFADAB4AAAABAAEAAAADABwAAAAAAAAAADADACAAAAABAAAAAGACACAAAAABAAEAAAACAB8AAAAAAAAAADACAB4AAAABAAAAADACAB0AAAABAAEAAAACABwAAAAAAAAAAAAEABsAAAABAAEAAAAEABoAAAABAAAAAAAEABkAAAABAAEAAAAEABgAAAABAAAAAAAEABcAAAAAAAAAAAAEABYAAAAAAAAAAAAEABUAAAABAAAAAAAEABQAAAABAAAAAAAEABMAAAAAAAAAAAADABQAAAABAAAAAGACABMAAAAAAAAAAAACABQAAAAAAAAAAAAAABEAAAAAAAAAAAABABAAAAAAAAAAAAAAAA8AAAABAAAAAAAAABAAAAABAAAAADADAA8AAAABAAEAADAFAA8AAAABAAEAAAAHAA8AAAAAAAAAAAAIABEAAAAAAAAAAAAHABIAAAAAAAAAAAAHABMAAAAAAAAAAAAIABQAAAAAAAAAAAAGABQAAAAAAAAAAAAFABQAAAABAAAAAAAFABMAAAABAAAAADAFABIAAAABAAEAAAAEABIAAAABAAEAADADABIAAAABAAAAAAADABMAAAABAAAAAAAAABIAAAABAAAAAAAAABMAAAAAAAEAAAAAABQAAAABAAAAAAABABQAAAABAAAAAGABABMAAAABAAAAAAABABIAAAAAAAAAAFACAA8AAAABAAEAAFACABAAAAABAAEAAAAIABAAAAAAAAEAAAACABIAAAABAAEAAAAFABAAAAABAAEAAGAHABEAAAABAAEAAGADABEAAAABAAEAAGABABEAAAABAAEAAAABAA8AAAABAAEAADAEAA8AAAABAAEAAGAGABAAAAABAAEAADADABAAAAABAAEAADAEABAAAAABAAEAAFACABEAAAABAAEAAFAGAA8AAAABAAEAAFAIAA8AAAABAAAAAAAIABMAAAAAAAEAAFAEABEAAAABAAEAAFAHABAAAAABAAEAAFAGABEAAAABAAEAADAFABEAAAABAAEAAAAGABIAAAAAAAAAADAIABIAAAAAAAAAAFAGABMAAAABAAAAADAHABQAAAABAAAAAAAEAA4AAAAAAAAAAAAEAA0AAAAAAAAAADAEAAwAAAABAAAAAFAEAAsAAAAAAAAAAFAEAAoAAAAAAAAAAGAEAAkAAAABAAEAAAAEAAgAAAAAAAEAAAAEAAcAAAABAAAAAFAEAAUAAAABAAAAADAEAAYAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_7o8q4")
 
 [node name="yellow-walls" type="TileMapLayer" parent="."]
 material = SubResource("CanvasItemMaterial_wmcey")
 position = Vector2(-2062, -7849)
-tile_map_data = PackedByteArray("AAAHABwAAAABAAAAAGAGABsAAAAAAAAAADAFABsAAAABAAAAADAHABsAAAAEAAEAAAAEABsAAAAAAAEAAAADABsAAAABAAAAADACABsAAAAAAAAAADABABsAAAAEAAEAAGABABwAAAAAAAAAAFABAB0AAAABAAAAAFABAB8AAAABAAAAAFABAB4AAAABAAAAAFABACAAAAAAAAAAAFACACEAAAABAAAAAAAEACEAAAABAAAAAAADACEAAAABAAEAADAFACEAAAAAAAEAADAGACEAAAABAAEAADAHACEAAAAEAAEAAFAHACAAAAAAAAEAAFABACEAAAAEAAEAADAHAB0AAAAAAAEAAFAHAB4AAAABAAEAAFAHAB8AAAABAAEAAFA=")
+tile_map_data = PackedByteArray("AAAHABwAAAABAAAAAGAGABsAAAAAAAAAADAFABsAAAACAAEAAAAHABsAAAAEAAEAAAADABsAAAACAAEAAGACABsAAAAAAAAAADABABsAAAAEAAEAAGABABwAAAAAAAAAAFABAB0AAAABAAAAAFABAB8AAAABAAAAAFABAB4AAAABAAAAAFABACAAAAAAAAAAAFACACEAAAABAAAAAAAEACEAAAABAAAAAAADACEAAAABAAEAADAFACEAAAAAAAEAADAGACEAAAABAAEAADAHACEAAAAEAAEAAFAHACAAAAAAAAEAAFABACEAAAAEAAEAADAHAB0AAAAAAAEAAFAHAB4AAAABAAEAAFAHAB8AAAABAAEAAFADABoAAAABAAEAAGADABkAAAABAAEAAGADABgAAAABAAEAAGADABcAAAABAAEAAGADABYAAAABAAEAAGADABUAAAACAAEAADACABUAAAABAAEAADABABUAAAABAAEAADAAABUAAAABAAEAADD//xQAAAABAAEAAGD//xMAAAABAAEAAGD//xIAAAABAAEAAGD//xAAAAABAAEAAGD//w8AAAABAAEAAGAAAA4AAAAAAAEAAAABAA4AAAAAAAEAAAACAA4AAAAAAAEAAAADAA4AAAADAAEAAAAFAA4AAAADAAEAAFAGAA4AAAAAAAEAAAAHAA4AAAAAAAEAAAAIAA4AAAAAAAEAAAAJAA8AAAAAAAEAAFAJABIAAAAAAAEAAFAJABMAAAAAAAEAAFAJABQAAAAAAAEAAFAIABUAAAAAAAEAADAHABUAAAAAAAEAADAGABUAAAAAAAEAADAFABUAAAADAAEAADD//w4AAAAEAAEAAGAJAA4AAAAEAAEAAAAJABUAAAAEAAEAAFD//xUAAAAEAAEAADADAA0AAAAAAAEAAGADAAwAAAAAAAEAAGADAAsAAAAAAAEAAGADAAoAAAAAAAEAAGADAAkAAAAAAAEAAGADAAgAAAAAAAEAAGAFAA0AAAAAAAEAAFAFAAwAAAAAAAEAAFAFAAsAAAAAAAEAAFAFAAoAAAAAAAEAAFAFAAkAAAAAAAEAAFAFAAgAAAAAAAEAAFAFAAcAAAAAAAEAAFADAAcAAAAAAAEAAGADAAYAAAAAAAEAAGADAAUAAAAAAAEAAGAFAAYAAAAAAAEAAFAFAAUAAAAAAAEAAFAFABYAAAAAAAEAAFAFABcAAAAAAAEAAFAFABgAAAAAAAEAAFAFABkAAAAAAAEAAFAFABoAAAAAAAEAAFA=")
 tile_set = SubResource("TileSet_nexm8")
 
 [node name="red-floor" type="TileMapLayer" parent="."]
 light_mask = 2
 material = SubResource("CanvasItemMaterial_bul2b")
-position = Vector2(11, 1536)
+position = Vector2(-783, 83)
+tile_map_data = PackedByteArray("AAAEAPH/BQABAAAAAGAFAPH/BQABAAAAADAGAPH/BQABAAAAAAAIAPH/BQABAAAAADAHAPH/BQAAAAAAAAAJAPH/BQABAAEAAFAKAPH/BQAAAAAAAGALAPH/BQAAAAEAADAMAPH/BQABAAAAADANAPH/BQABAAAAAGAOAPH/BQAAAAAAAAAEAPL/BQABAAAAAAAFAPL/BQABAAEAADAIAPL/BQABAAAAAAAJAPL/BQABAAEAAFAGAPL/BQABAAEAAGAHAPL/BQABAAEAAAAKAPL/BQABAAAAAAALAPL/BQAAAAAAADAMAPL/BQAAAAAAAGAOAPL/BQAAAAAAADAQAPH/BQAAAAEAAAAPAPH/BQABAAEAAAAQAPL/BQABAAEAADAPAPL/BQABAAEAAFANAPL/BQAAAAAAAAAQAPP/BQAAAAAAAAAPAPP/BQAAAAAAAFAQAPT/BQAAAAAAADAQAPb/BQAAAAAAAGAQAPX/BQAAAAAAAAAPAPT/BQABAAEAAGAPAPX/BQABAAAAADAPAPb/BQABAAEAAFAPAPf/BQABAAEAAGAQAPf/BQAAAAAAAAAPAPj/BQABAAAAAFAQAPj/BQABAAEAAAAOAPj/BQABAAAAAGAOAPn/BQAAAAEAADAPAPn/BQAAAAAAAGAQAPn/BQABAAEAADARAPn/BQABAAEAAGARAPj/BQABAAAAAFDm/+z/BQAAAAAAAFDo/+z/BQAAAAAAADDn/+v/BQAAAAAAAGDo/+v/BQABAAAAAADn/+z/BQABAAEAAADm/+v/BQAAAAAAAADm/+r/BQAAAAAAAFDn/+r/BQABAAEAAFDo/+r/BQAAAAAAAGD1//j/BQAAAAAAAAD2//j/BQABAAEAAAD3//j/BQABAAAAAAD4//j/BQAAAAAAAAA=")
 tile_set = SubResource("TileSet_baqb4")
 
 [node name="red-walls" type="TileMapLayer" parent="."]
 light_mask = 2
 material = SubResource("CanvasItemMaterial_temo3")
-position = Vector2(0, 1536)
+position = Vector2(-780, 90)
+tile_map_data = PackedByteArray("AAAEAPD/AAAAAAEAAAAFAPD/AAAAAAEAAAAGAPD/AAAAAAEAAAAHAPD/AAAAAAEAAAAIAPD/AAAAAAEAAAAJAPD/AAAAAAEAAAAKAPD/AAAAAAEAAAALAPD/AAAAAAEAAAAMAPD/AAAAAAEAAAANAPD/AAAAAAEAAAAOAPD/AAAAAAEAAAAPAPD/AAAAAAEAAAAQAPD/AAAAAAEAAAARAPH/AAAAAAEAAFARAPL/AAAAAAEAAFARAPP/AAAAAAEAAFARAPT/AAAAAAEAAFARAPX/AAAAAAEAAFARAPf/AAACAAEAAAASAPj/AAAAAAEAAFASAPn/AAAAAAEAAFARAPr/AAAAAAEAADAQAPr/AAAAAAEAADAPAPr/AAAAAAEAADAOAPr/AAAAAAEAADANAPj/AAAAAAEAAGANAPn/AAAAAAEAAGAOAPf/AAADAAEAAAAOAPb/AAABAAEAAGAOAPX/AAABAAEAAGAOAPT/AAABAAEAAGAOAPP/AAACAAEAADANAPP/AAABAAEAADAMAPP/AAABAAEAADALAPP/AAABAAEAADAKAPP/AAABAAEAADAJAPP/AAABAAEAADAIAPP/AAABAAEAADAHAPP/AAABAAEAADAGAPP/AAABAAEAADAFAPP/AAABAAEAADAEAPP/AAABAAEAADASAPf/AAAEAAEAAAANAPf/AAAEAAEAAGANAPr/AAAEAAEAADASAPr/AAAEAAEAAFARAPD/AAAEAAEAAADl/+z/AAABAAEAAGDl/+v/AAABAAEAAGDl/+r/AAABAAEAAGDm/+n/AAABAAEAAADn/+n/AAABAAEAAADo/+n/AAABAAEAAADp/+r/AAABAAEAAFDp/+v/AAABAAEAAFDp/+z/AAABAAEAAFDp/+n/AAAEAAEAAADl/+n/AAAEAAEAAGD1//f/AAABAAEAAAD2//f/AAABAAEAAAD3//f/AAABAAEAAAD4//f/AAABAAEAAAD5//j/AAABAAEAAFD4//n/AAABAAEAADD3//n/AAABAAEAADD2//n/AAABAAEAADD1//n/AAABAAEAADD5//n/AAAEAAEAAFD5//f/AAAEAAEAAAA=")
 tile_set = SubResource("TileSet_2dr7r")
 
 [node name="blue-floor" type="TileMapLayer" parent="."]
+light_mask = 4
+position = Vector2(-780, 86)
+tile_map_data = PackedByteArray("AAARAPb/AAAAAAAAAAASAPb/AAAAAAAAAAATAPb/AAAAAAAAAAD6//L/AAAAAAAAAAD5//L/AAABAAEAAGD4//L/AAAAAAAAAGD3//L/AAABAAAAAGD2//L/AAABAAEAAFD1//L/AAAAAAAAAFD0//L/AAABAAAAAFD0//H/AAABAAEAAGD0//D/AAAAAAAAAFD0/+//AAABAAAAAAD0/+7/AAABAAEAAAD0/+3/AAABAAAAAADz/+z/AAABAAAAAAD0/+z/AAAAAAAAAAD1/+z/AAAAAAAAAFD0/+v/AAABAAEAAADz/+v/AAABAAEAAFD1/+v/AAABAAEAAFD0//P/AAAAAAAAAFD0//T/AAABAAEAAFD0//X/AAAAAAAAAAD0//b/AAABAAAAAFD0//f/AAABAAEAAFD0//j/AAAAAAEAAFDz//j/AAABAAEAAGDy//j/AAABAAAAAADx//j/AAAAAAAAAADv//j/AAAAAAAAAFDw//j/AAABAAEAAADu//j/AAABAAAAAADt//j/AAABAAAAAADs//j/AAABAAAAAFDr//j/AAAAAAAAAFDp//j/AAAAAAAAAADq//j/AAAAAAEAAFDo//j/AAABAAEAAADn//j/AAABAAAAAADn//n/AAAAAAAAAADn//r/AAAAAAAAAFDn//v/AAABAAAAAADn//3/AAABAAAAAFDn//z/AAABAAEAADDn//7/AAAAAAAAAADn////AAAAAAAAAADn/wAAAAAAAAAAAFDm/wAAAAABAAAAAADm/wEAAAABAAAAAADo/wAAAAABAAAAAFDm////AAAAAAAAAFDo////AAAAAAAAAFDp////AAAAAAAAADDp/wAAAAAAAAEAAADp/wEAAAABAAEAAADl////AAABAAEAAADl/wAAAAABAAEAAFDl/wEAAAAAAAEAAADn/wEAAAABAAEAAFDo/wEAAAAAAAAAAADn//f/AAAAAAAAAADn//b/AAABAAAAAADn//X/AAABAAEAAFDn//T/AAABAAAAAADn//P/AAAAAAAAAFDn//L/AAAAAAEAAFDn//H/AAABAAEAAADn//D/AAABAAEAAFDn/+//AAABAAAAAFDn/+7/AAAAAAAAAADn/+3/AAABAAEAADDm/+3/AAABAAEAAFDm/+7/AAAAAAAAAFDo/+7/AAABAAEAAFDo/+3/AAABAAAAAAA=")
+tile_set = SubResource("TileSet_l3j54")
 
 [node name="blue-walls" type="TileMapLayer" parent="."]
+light_mask = 4
+position = Vector2(-785, 80)
+tile_map_data = PackedByteArray("AAARAPX/AAAAAAAAADASAPX/AAAAAAAAADATAPX/AAAAAAAAADAUAPb/AAAAAAAAAGATAPf/AAAAAAAAAAASAPf/AAAAAAAAAAARAPf/AAAAAAAAAAAUAPX/AAAEAAEAAAAUAPf/AAAEAAEAAFDl/+3/AAABAAEAAGDl/+7/AAABAAEAAGDm/+//AAACAAEAADDo/+//AAACAAEAAFDp/+7/AAABAAEAAFDp/+3/AAABAAEAAFDp/+//AAAEAAEAAFDp/+z/AAAEAAEAAADl/+z/AAAEAAEAAGDl/+//AAAEAAEAADDo//D/AAABAAEAAFDo//H/AAABAAEAAFDo//L/AAABAAEAAFDo//P/AAABAAEAAFDo//T/AAABAAEAAFDo//X/AAABAAEAAFDo//b/AAABAAEAAFDo//f/AAACAAEAAADp//f/AAABAAEAAADq//f/AAABAAEAAADr//f/AAABAAEAAADs//f/AAABAAEAAADt//f/AAABAAEAAADu//f/AAABAAEAAADv//f/AAABAAEAAADw//f/AAABAAEAAADx//f/AAABAAEAAADy//f/AAABAAEAAADz//f/AAACAAEAAGDz//b/AAABAAEAAGDz//X/AAABAAEAAGDz//T/AAABAAEAAGDz//P/AAABAAEAAGDz//L/AAABAAEAAGDz//H/AAABAAEAAGDz//D/AAABAAEAAGDz/+//AAABAAEAAGDz/+7/AAABAAEAAGDz/+3/AAACAAEAADDy/+z/AAABAAEAAGDy/+v/AAABAAEAAGDz/+r/AAABAAEAAAD0/+r/AAABAAEAAAD1/+r/AAABAAEAAAD2/+v/AAABAAEAAFD2/+z/AAABAAEAAFD1/+3/AAACAAEAAFD2/+3/AAAEAAEAAFD2/+r/AAAEAAEAAADy/+r/AAAEAAEAAGDy/+3/AAAEAAEAADD1/+7/AAABAAEAAFD1/+//AAABAAEAAFD1//D/AAABAAEAAFD1//H/AAACAAEAAAD2//H/AAABAAEAAAD3//H/AAABAAEAAAD4//H/AAABAAEAAAD5//H/AAABAAEAAAD6//H/AAABAAEAAAD1//P/AAACAAEAAFD2//P/AAABAAEAADD3//P/AAABAAEAADD4//P/AAABAAEAADD5//P/AAABAAEAADD6//P/AAABAAEAADD1//T/AAABAAEAAFD1//X/AAABAAEAAFD1//b/AAABAAEAAFD1//f/AAABAAEAAFD0//n/AAABAAEAADDz//n/AAABAAEAADDy//n/AAABAAEAADDx//n/AAABAAEAADDw//n/AAABAAEAADDv//n/AAABAAEAADDu//n/AAABAAEAADDt//n/AAABAAEAADDs//n/AAABAAEAADDr//n/AAABAAEAADDq//n/AAABAAEAADDp//n/AAABAAEAADDo//n/AAACAAEAAFDo//r/AAABAAEAAFDo//v/AAABAAEAAFDo//z/AAABAAEAAFDo//3/AAABAAEAAFDo//7/AAACAAEAAADp//7/AAABAAEAAADq////AAABAAEAAFDq/wAAAAABAAEAAFDq/wEAAAABAAEAAFDp/wIAAAABAAEAADDo/wIAAAABAAEAADDn/wIAAAABAAEAADDm/wIAAAABAAEAADDl/wIAAAABAAEAADDk/wEAAAABAAEAAGDk/wAAAAABAAEAAGDk////AAABAAEAAGDl//7/AAABAAEAAADm//7/AAACAAEAAGDm//3/AAABAAEAAGDm//z/AAABAAEAAGDm//v/AAABAAEAAGDm//r/AAABAAEAAGDm//n/AAABAAEAAGDm//j/AAABAAEAAGDm//f/AAABAAEAAGDm//b/AAABAAEAAGDm//X/AAABAAEAAGDm//T/AAABAAEAAGDm//P/AAABAAEAAGDm//L/AAABAAEAAGDm//H/AAABAAEAAGDm//D/AAABAAEAAGDq//7/AAAEAAEAAADk//7/AAAEAAEAAGDk/wIAAAAEAAEAADDq/wIAAAAEAAEAAFD1//n/AAAEAAEAAFA=")
+tile_set = SubResource("TileSet_m3ajd")
 
 [node name="all-wall" type="TileMapLayer" parent="."]
 light_mask = 7
 material = SubResource("CanvasItemMaterial_yitj8")
+position = Vector2(-780, 85)
+tile_map_data = PackedByteArray("AAAEAPL/AAABAAAAAWAEAPH/AAABAAAAAWARAPb/AAABAAAAAWD6//L/AAABAAAAAVD1//j/AAABAAAAAWDm/+z/AAABAAAAATDn/+z/AAABAAAAATDo/+z/AAABAAAAATA=")
 tile_set = SubResource("TileSet_smnsr")
 
 [node name="Player" parent="." instance=ExtResource("5_rm28d")]
@@ -382,3 +626,167 @@ position = Vector2(-900, -38)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
 blend_mode = 1
+
+[node name="Switch" parent="." instance=ExtResource("7_rnxx6")]
+modulate = Color(1, 0.894118, 0, 1)
+position = Vector2(-1418, -3626)
+switchType = "Puzzle"
+
+[node name="Switch2" parent="." instance=ExtResource("7_rnxx6")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(-906, -3626)
+switchType = "Puzzle"
+
+[node name="Switch3" parent="." instance=ExtResource("7_rnxx6")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-394, -3626)
+switchType = "Puzzle"
+
+[node name="MoveableWall" parent="." instance=ExtResource("8_k4igf")]
+position = Vector2(-907, -4033)
+script = ExtResource("9_ohe6q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MoveableWall"]
+libraries = {
+"": SubResource("AnimationLibrary_nymk4")
+}
+
+[node name="Sign1" type="Sprite2D" parent="."]
+position = Vector2(4152, -2356)
+texture = ExtResource("10_hlvki")
+script = ExtResource("11_m37xc")
+
+[node name="Sign2" type="Sprite2D" parent="."]
+position = Vector2(-1840, -3136)
+texture = ExtResource("10_hlvki")
+script = ExtResource("12_c48kv")
+
+[node name="Sign3" type="Sprite2D" parent="."]
+position = Vector2(-7056, -5264)
+texture = ExtResource("10_hlvki")
+script = ExtResource("13_0kxpv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_od1fw")
+}
+speed_scale = 0.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control"]
+visible = false
+light_mask = 2
+visibility_layer = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.5
+offset_top = -276.5
+offset_right = 292.5
+offset_bottom = 276.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture = ExtResource("14_xbv12")
+region_rect = Rect2(9, 1, 238, 249)
+patch_margin_left = 86
+patch_margin_top = 81
+patch_margin_right = 81
+patch_margin_bottom = 58
+
+[node name="Label1" type="Label" parent="CanvasLayer/Control/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -11.5
+offset_right = 22.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "RED 1"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -11.5
+offset_right = 22.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "YELLOW 2"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -11.5
+offset_right = 22.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BLUE 3"
+
+[node name="Enemy2" parent="." instance=ExtResource("15_q7n0k")]
+position = Vector2(-3742, -4994)
+
+[node name="Enemy3" parent="." instance=ExtResource("15_q7n0k")]
+position = Vector2(-5791, -1812)
+
+[node name="Enemy4" parent="." instance=ExtResource("15_q7n0k")]
+position = Vector2(-7047, -4168)
+
+[node name="Enemy1" parent="." instance=ExtResource("16_tj26i")]
+position = Vector2(-7123, 308)
+
+[node name="Enemy5" parent="." instance=ExtResource("16_tj26i")]
+position = Vector2(3279, -1654)
+
+[node name="Enemy6" parent="." instance=ExtResource("15_q7n0k")]
+position = Vector2(3272, -3427)
+
+[node name="Enemy7" parent="." instance=ExtResource("16_tj26i")]
+position = Vector2(-3007, -1815)
+
+[node name="GoodbyeBox" type="Area2D" parent="."]
+script = ExtResource("17_nye1f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoodbyeBox"]
+position = Vector2(-913, -5486)
+shape = SubResource("RectangleShape2D_unhov")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_bxatc")
+autoplay = true
+
+[connection signal="body_entered" from="GoodbyeBox" to="GoodbyeBox" method="_on_body_entered"]
