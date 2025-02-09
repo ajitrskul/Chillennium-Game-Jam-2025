@@ -11,17 +11,16 @@ func _on_body_entered(body: Node2D) -> void:
 	#checks body is player
 	if body.name != "Player":
 		return
-	
-	
-	Engine.time_scale = 0.5 #slows down time
-	body.get_node("CollisionShape2D").queue_free() #deletes player hitbox
-	timer.start() #starts countdown before scene reset
-	
-	#death animation for player
-	body.deathfunc()
-	
-	#tells enemy the player is dead
-	alive = false
+	elif body.current_lantern_num == 0:
+		Engine.time_scale = 0.5 #slows down time
+		body.get_node("CollisionShape2D").queue_free() #deletes player hitbox
+		timer.start() #starts countdown before scene reset
+		
+		#death animation for player
+		body.deathfunc()
+		
+		#tells enemy the player is dead
+		alive = false
 
 
 #resets scene
