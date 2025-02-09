@@ -43,8 +43,14 @@ script = ExtResource("1_0otvp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_right = 1155.0
-offset_bottom = 649.0
+anchors_preset = -1
+anchor_top = -0.484
+anchor_bottom = -0.484
+offset_left = -709.0
+offset_top = -262.368
+offset_right = 4537.0
+offset_bottom = 2250.63
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
