@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://bo8x6j0peph11"]
+[gd_scene load_steps=57 format=4 uid="uid://bo8x6j0peph11"]
 
 [ext_resource type="Script" path="res://scripts/level-1.gd" id="1_v2ru8"]
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="2_ub5bl"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bslaiy5gku8ui" path="res://assets/sprites/Sign.png" id="10_hlvki"]
 [ext_resource type="Script" path="res://scripts/sign_1.gd" id="11_m37xc"]
 [ext_resource type="Script" path="res://scripts/sign_2.gd" id="12_c48kv"]
+[ext_resource type="Theme" path="res://assets/Themes/LabelText.tres" id="12_y0bdk"]
 [ext_resource type="Script" path="res://scripts/sign_3.gd" id="13_0kxpv"]
 [ext_resource type="Texture2D" uid="uid://cy7xqs10fkafu" path="res://assets/sprites/GUI/9GridGUI.png" id="14_xbv12"]
 [ext_resource type="PackedScene" uid="uid://bop5j78cfa5d6" path="res://scenes/enemy_2.tscn" id="15_q7n0k"]
@@ -396,6 +397,12 @@ _data = {
 "door_move": SubResource("Animation_kjr17")
 }
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_61it6"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s0hyb"]
+light_mode = 1
+
 [sub_resource type="Animation" id="Animation_eset2"]
 length = 0.001
 tracks/0/type = "value"
@@ -657,19 +664,49 @@ texture = ExtResource("10_hlvki")
 script = ExtResource("11_m37xc")
 
 [node name="Label" type="Label" parent="Sign1"]
-offset_right = 40.0
-offset_bottom = 23.0
+material = SubResource("CanvasItemMaterial_61it6")
+offset_left = -143.0
+offset_top = 94.0
+offset_right = 213.0
+offset_bottom = 173.0
+theme = ExtResource("12_y0bdk")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
 text = "Inspect (F)"
+horizontal_alignment = 1
 
 [node name="Sign2" type="Sprite2D" parent="."]
 position = Vector2(-1840, -3136)
 texture = ExtResource("10_hlvki")
 script = ExtResource("12_c48kv")
 
+[node name="Label2" type="Label" parent="Sign2"]
+material = SubResource("CanvasItemMaterial_s0hyb")
+offset_left = -156.0
+offset_top = 103.0
+offset_right = 200.0
+offset_bottom = 182.0
+theme = ExtResource("12_y0bdk")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Inspect (F)"
+horizontal_alignment = 1
+
 [node name="Sign3" type="Sprite2D" parent="."]
 position = Vector2(-7056, -5264)
 texture = ExtResource("10_hlvki")
 script = ExtResource("13_0kxpv")
+
+[node name="Label3" type="Label" parent="Sign3"]
+offset_left = -174.0
+offset_top = 118.0
+offset_right = 182.0
+offset_bottom = 197.0
+theme = ExtResource("12_y0bdk")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Inspect (F)"
+horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -719,14 +756,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.5
-offset_top = -11.5
-offset_right = 22.5
-offset_bottom = 11.5
+offset_left = -41.0
+offset_top = -75.5
+offset_right = 41.0
+offset_bottom = 75.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "RED 1"
+theme = ExtResource("12_y0bdk")
+theme_override_colors/font_color = Color(1, 0.124572, 0.0864938, 1)
+theme_override_font_sizes/font_size = 150
+text = "1"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer/Control/NinePatchRect"]
 visible = false
@@ -736,14 +776,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.5
-offset_top = -11.5
-offset_right = 22.5
-offset_bottom = 11.5
+offset_left = -46.0
+offset_top = -75.5
+offset_right = 46.0
+offset_bottom = 75.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "YELLOW 2"
+theme = ExtResource("12_y0bdk")
+theme_override_colors/font_color = Color(0.992157, 0.8, 0.223529, 1)
+theme_override_font_sizes/font_size = 150
+text = "2"
+horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="CanvasLayer/Control/NinePatchRect"]
 visible = false
@@ -753,14 +796,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -22.5
-offset_top = -11.5
-offset_right = 22.5
-offset_bottom = 11.5
+offset_left = -46.0
+offset_top = -75.5
+offset_right = 46.0
+offset_bottom = 75.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "BLUE 3"
+theme = ExtResource("12_y0bdk")
+theme_override_colors/font_color = Color(0, 0, 0.85098, 1)
+theme_override_font_sizes/font_size = 150
+text = "3
+"
+horizontal_alignment = 1
 
 [node name="Enemy2" parent="." instance=ExtResource("15_q7n0k")]
 position = Vector2(-3742, -4994)
