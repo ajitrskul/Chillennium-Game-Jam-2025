@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://bwjy0h7lywjh6"]
+[gd_scene load_steps=32 format=4 uid="uid://bwjy0h7lywjh6"]
 
 [ext_resource type="Script" path="res://scripts/level-1.gd" id="1_e7dio"]
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="2_5sern"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" path="res://scenes/red_lantern.tscn" id="6_gqbi5"]
 [ext_resource type="PackedScene" uid="uid://dytuyj8ltplvb" path="res://scenes/campfire.tscn" id="7_1p17b"]
 [ext_resource type="PackedScene" uid="uid://dvh5xam4e5wv" path="res://scenes/enemy_0.tscn" id="8_fua7d"]
+[ext_resource type="AudioStream" uid="uid://psa17fkeo4dv" path="res://assets/music/LabryinthAmbient.wav" id="9_aduvu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xfy1i"]
 light_mode = 2
@@ -398,3 +399,7 @@ position = Vector2(3716, 7810)
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
 blend_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_aduvu")
+autoplay = true

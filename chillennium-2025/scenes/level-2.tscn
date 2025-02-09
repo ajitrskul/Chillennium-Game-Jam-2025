@@ -1,11 +1,12 @@
-[gd_scene load_steps=29 format=4 uid="uid://duxkn8ff8gtjm"]
+[gd_scene load_steps=30 format=4 uid="uid://duxkn8ff8gtjm"]
 
 [ext_resource type="Script" path="res://scripts/level-1.gd" id="1_e7dio"]
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="2_5sern"]
 [ext_resource type="Texture2D" uid="uid://dtb45gujtu08e" path="res://assets/sprites/WallTiles.png" id="3_cog8o"]
 [ext_resource type="Texture2D" uid="uid://c2uvsbehie7ke" path="res://assets/sprites/merged-tile-map.png" id="4_gb8ho"]
 [ext_resource type="PackedScene" uid="uid://bv8nsb38u7kpf" path="res://scenes/player.tscn" id="5_cknda"]
-[ext_resource type="PackedScene" uid="uid://b3eywrgkqll3f" path="res://scenes/campfire.tscn" id="7_1p17b"]
+[ext_resource type="PackedScene" uid="uid://dytuyj8ltplvb" path="res://scenes/campfire.tscn" id="7_1p17b"]
+[ext_resource type="AudioStream" uid="uid://psa17fkeo4dv" path="res://assets/music/LabryinthAmbient.wav" id="7_ro3x5"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xfy1i"]
 
@@ -383,3 +384,7 @@ DestinationScene = "level-2"
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
 blend_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ro3x5")
+autoplay = true
