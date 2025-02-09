@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcsa4ik0f3bxj"]
+[gd_scene load_steps=11 format=3 uid="uid://l5tpbiyjym83"]
 
-[ext_resource type="Texture2D" uid="uid://c18vw5djuvdtd" path="res://assets/sprites/Player/Lanterns_Red.png" id="1_21b1e"]
-[ext_resource type="Script" path="res://scripts/red_lantern.gd" id="1_s16ce"]
-[ext_resource type="AudioStream" uid="uid://bo20fu5y3pbhr" path="res://assets/music/LanternSwap.wav" id="3_jewha"]
+[ext_resource type="Script" path="res://scripts/blue_lantern.gd" id="1_a2fvm"]
+[ext_resource type="Texture2D" uid="uid://b4vofa77lvrkg" path="res://assets/sprites/Player/Lantern_Blue.png" id="2_2ea7c"]
+[ext_resource type="AudioStream" uid="uid://bo20fu5y3pbhr" path="res://assets/music/LanternSwap.wav" id="3_621k2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1oqae"]
 light_mode = 1
@@ -107,23 +107,24 @@ _data = {
 "pick_up": SubResource("Animation_sqiph")
 }
 
-[node name="red-lantern" type="Area2D"]
+[node name="blue-lantern" type="Area2D"]
 material = SubResource("CanvasItemMaterial_1oqae")
-script = ExtResource("1_s16ce")
+script = ExtResource("1_a2fvm")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-light_mask = 2
-color = Color(1, 0.288906, 0.209882, 1)
+modulate = Color(0.362829, 0.362829, 0.362829, 1)
+light_mask = 7
+color = Color(0.286275, 0.713726, 1, 1)
 energy = 10.0
-range_item_cull_mask = 2
+range_item_cull_mask = 4
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_lwyy4")
 texture_scale = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.404511, 0.404511, 0.404511, 1)
+modulate = Color(0.374139, 0.374139, 0.374139, 1)
 light_mask = 2
-texture = ExtResource("1_21b1e")
+texture = ExtResource("2_2ea7c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ykn6d")
@@ -135,6 +136,6 @@ libraries = {
 speed_scale = 2.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_jewha")
+stream = ExtResource("3_621k2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
