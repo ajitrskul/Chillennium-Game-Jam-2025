@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://duxkn8ff8gtjm"]
+[gd_scene load_steps=56 format=4 uid="uid://duxkn8ff8gtjm"]
 
 [ext_resource type="Script" path="res://scripts/level-3.gd" id="1_e7dio"]
 [ext_resource type="Texture2D" uid="uid://dvntudxnr08o6" path="res://assets/sprites/FloorTiles.png" id="2_5sern"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bv8nsb38u7kpf" path="res://scenes/player.tscn" id="5_cknda"]
 [ext_resource type="PackedScene" uid="uid://dqsk11w6060aq" path="res://scenes/enemy_1.tscn" id="6_6lb63"]
 [ext_resource type="PackedScene" uid="uid://dytuyj8ltplvb" path="res://scenes/campfire.tscn" id="7_1p17b"]
+[ext_resource type="AudioStream" uid="uid://psa17fkeo4dv" path="res://assets/music/LabryinthAmbient.wav" id="7_ro3x5"]
 [ext_resource type="PackedScene" uid="uid://defva11l0d3l8" path="res://scenes/switch.tscn" id="7_to1sm"]
 [ext_resource type="PackedScene" path="res://scenes/spikes_2.tscn" id="8_8ljx2"]
 [ext_resource type="Script" path="res://scripts/l2-switch.gd" id="8_523bc"]
@@ -3259,7 +3260,7 @@ tile_size = Vector2i(256, 256)
 sources/0 = SubResource("TileSetAtlasSource_c425w")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1s02j"]
-light_mode = 2
+light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l3y66"]
 light_mode = 2
@@ -3299,6 +3300,12 @@ _data = {
 "RESET": SubResource("Animation_2ok7l"),
 "door_move": SubResource("Animation_6iehr")
 }
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lakso"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5y7d8"]
+light_mode = 1
 
 [node name="level-2" type="Node2D"]
 position = Vector2(906, 42)
@@ -3455,8 +3462,7 @@ position = Vector2(-13566, 604.378)
 DestinationScene = "level-3"
 
 [node name="Switch" parent="." instance=ExtResource("7_to1sm")]
-modulate = Color(0.423651, 0.423651, 0.423651, 1)
-light_mask = 4
+light_mask = 7
 material = SubResource("CanvasItemMaterial_1s02j")
 position = Vector2(-4364.28, 3928.28)
 rotation = 1.5708
@@ -3485,16 +3491,21 @@ position = Vector2(-138, -42)
 blend_mode = 1
 
 [node name="Label" type="Label" parent="."]
-offset_left = -10065.8
-offset_top = 57.3404
-offset_right = -9887.84
-offset_bottom = 136.34
+light_mask = 7
+visibility_layer = 7
+material = SubResource("CanvasItemMaterial_lakso")
+offset_left = -10119.0
+offset_top = -56.0
+offset_right = -9835.0
+offset_bottom = 95.0
 theme = ExtResource("16_82srh")
-theme_override_colors/font_color = Color(0, 0.439216, 0.741176, 1)
+theme_override_colors/font_color = Color(0.227973, 0.642335, 0.999994, 1)
+theme_override_font_sizes/font_size = 100
 text = "3...?"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_5y7d8")
 offset_left = -4576.05
 offset_top = 4020.66
 offset_right = -4150.05
@@ -3503,3 +3514,7 @@ theme = ExtResource("16_82srh")
 theme_override_font_sizes/font_size = 40
 text = "F to Interact"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ro3x5")
+autoplay = true
